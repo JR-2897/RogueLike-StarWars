@@ -3,13 +3,17 @@ import styled from 'styled-components'
 import { useTranslation } from 'react-i18next'
 
 const Header = () => {
-  const {t, i18n} = useTranslation()
+  const { t, i18n } = useTranslation()
   return (
     <HeaderBalise>
       <NavBar>
         <DivChangeLanguage>
-          <ChangeLanguage onClick={() => i18n.changeLanguage('fr')}>fr</ChangeLanguage>
-          <ChangeLanguage onClick={() => i18n.changeLanguage('en')}>en</ChangeLanguage>
+          <ChangeLanguage onClick={() => i18n.changeLanguage('fr')}>
+            fr
+          </ChangeLanguage>
+          <ChangeLanguage onClick={() => i18n.changeLanguage('en')}>
+            en
+          </ChangeLanguage>
         </DivChangeLanguage>
         <DivTitleWebSite>
           <TitleWebSite>{t('StarWars')}</TitleWebSite>
