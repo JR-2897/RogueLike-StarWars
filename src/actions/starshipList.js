@@ -1,4 +1,4 @@
-import {getEmpireShips, getIdList, getRebelShips, transformDataForStarship} from '../utils/funcStarship'
+import {getEmpireShips, getRebelShips, transformDataForStarship} from '../utils/funcStarship'
 import axios from 'axios'
 
 export const UPDATE_STARSHIPLIST = 'UPDATE_STARSHIPLIST'
@@ -9,8 +9,9 @@ export const updateStarshipList = (starshipList) => ({
 })
 
 export const getStarshipList = (faction) => dispatch => {
-  let list = faction === 'Rebel'? getRebelShips() : getEmpireShips() 
-  list.forEach(id => {
+  const listShip = faction === 'Rebel'? getRebelShips() : getEmpireShips()
+  let list = [] 
+  listShip.forEach(id => {
     axios({
       method: 'GET',
       url: `https://swapi.dev/api/starships/{id}`
