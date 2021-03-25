@@ -2,7 +2,7 @@ import {planets} from '../resources/data/dataPlanets'
 
 export const getIdList = () => {
   const idList = []
-  planetes.map(ship => {
+  planets.map(ship => {
     idList.push(ship.id)
   })
   return idList
