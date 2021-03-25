@@ -1,4 +1,4 @@
-export const dataApiForPlanete = [
+export const planets = [
   {
     id: 1,
     name: 'Tatooine',
@@ -350,3 +350,4 @@ export const dataApiForPlanete = [
     faction: 'Rebel'
   }
 ]
+
