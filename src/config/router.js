@@ -21,6 +21,8 @@ const router = () => {
         <Route exact path='/spacetravel' component={SpaceTravel} />
         <Route exact path='/gameover' component={GameOver} />
         <Route exact path='/leaderboards' component={Leaderboards} />
+
+        <Redirect to='/' />
       </Switch>
     </Router>
   )
