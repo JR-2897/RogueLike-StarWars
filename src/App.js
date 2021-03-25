@@ -2,7 +2,6 @@ import React from 'react'
 import { Provider } from 'react-redux'
 // import ThemeProvider from 'styled-components'
 
-import logo from './resources/logo_sw.png'
 import { store } from './configs/store'
 // import {theme} from './configs/theme'
 import Routes from './configs/router'

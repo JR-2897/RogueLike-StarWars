@@ -6,6 +6,8 @@ import {
   Redirect
 } from 'react-router-dom'
 
+import Header from '../components/header'
+
 import Home from '../screens/Home'
 import Profile from '../screens/Profile'
 import SpaceTravel from '../screens/SpaceTravel'
@@ -15,6 +17,7 @@ import Leaderboards from '../screens/Leaderboards'
 const Routes = () => {
   return (
     <Router>
+      <Header></Header>
       <Switch>
         <Route exact path='/' component={Home} />
         <Route exact path='/profile' component={Profile} />
