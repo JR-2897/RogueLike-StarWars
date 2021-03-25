@@ -9,7 +9,6 @@ import {
 import { useSelector } from 'react-redux'
 
 import { ThemeProvider } from 'styled-components'
-import { dark_theme, light_theme } from '../configs/theme'
 import { createGlobalStyle } from 'styled-components'
 
 import Header from '../components/header'
@@ -18,13 +17,12 @@ import Profile from '../screens/Profile'
 import SpaceTravel from '../screens/SpaceTravel'
 import GameEnd from '../screens/GameOver'
 import Leaderboards from '../screens/Leaderboards'
-import { useEffect } from 'react/cjs/react.development'
 
 const Routes = () => {
-  const style1 = useSelector(state => state.theme.style)
+  const currentStyle = useSelector(state => state.theme.style)
 
   return (
-    <ThemeProvider theme={style1}>
+    <ThemeProvider theme={currentStyle}>
       <GlobalStyle />
       <Router>
         <Header></Header>
