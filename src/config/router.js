@@ -9,7 +9,7 @@ import {
 import Home from '../screens/Home'
 import Profile from '../screens/Profile'
 import SpaceTravel from '../screens/SpaceTravel'
-import GameOver from '../screens/GameOver'
+import GameEnd from '../screens/GameOver'
 import Leaderboards from '../screens/Leaderboards'
 
 const router = () => {
@@ -19,7 +19,7 @@ const router = () => {
         <Route exact path='/' component={Home} />
         <Route exact path='/profile' component={Profile} />
         <Route exact path='/spacetravel' component={SpaceTravel} />
-        <Route exact path='/gameover' component={GameOver} />
+        <Route exact path='/gameover' component={GameEnd} />
         <Route exact path='/leaderboards' component={Leaderboards} />
 
         <Redirect to='/' />
