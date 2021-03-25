@@ -1,8 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
+import { useDispatch } from 'react-redux'
 import { useTranslation } from 'react-i18next'
+import { updateTheme } from '../../actions/theme'
+import { dark_theme, light_theme } from '../../configs/theme'
 
 const Header = () => {
+  const dispatch = useDispatch()
   const { t, i18n } = useTranslation()
   return (
     <HeaderBalise>
@@ -19,8 +23,14 @@ const Header = () => {
           <TitleWebSite>{t('StarWars')}</TitleWebSite>
         </DivTitleWebSite>
         <DivChangeDayNightMode>
-          <ChangeDayNightMode>jour</ChangeDayNightMode>
-          <ChangeDayNightMode>nuit</ChangeDayNightMode>
+          <ChangeDayNightMode
+            onClick={() => dispatch(updateTheme(light_theme))}
+          >
+            jour
+          </ChangeDayNightMode>
+          <ChangeDayNightMode onClick={() => dispatch(updateTheme(dark_theme))}>
+            nuit
+          </ChangeDayNightMode>
         </DivChangeDayNightMode>
       </NavBar>
     </HeaderBalise>

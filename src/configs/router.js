@@ -18,11 +18,13 @@ import Profile from '../screens/Profile'
 import SpaceTravel from '../screens/SpaceTravel'
 import GameEnd from '../screens/GameOver'
 import Leaderboards from '../screens/Leaderboards'
+import { useEffect } from 'react/cjs/react.development'
 
 const Routes = () => {
-  const style = useSelector(state => state.theme.style)
+  const style1 = useSelector(state => state.theme.style)
+
   return (
-    <ThemeProvider theme={style}>
+    <ThemeProvider theme={style1}>
       <GlobalStyle />
       <Router>
         <Header></Header>
