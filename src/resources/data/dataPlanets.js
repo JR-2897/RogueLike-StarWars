@@ -25,7 +25,7 @@ export const dataApiForPlanete = [
     name: 'Hoth',
     img:
       'https://static.wikia.nocookie.net/frstarwars/images/d/d1/Hoth.jpg/revision/latest/scale-to-width-down/350?cb=20150220140638',
-    faction: 'Empire'
+    faction: 'Rebel'
   },
   {
     id: 5,
@@ -46,7 +46,7 @@ export const dataApiForPlanete = [
     name: 'Endor',
     img:
       'https://static.wikia.nocookie.net/frstarwars/images/9/9f/Endor_new.png/revision/latest/scale-to-width-down/350?cb=20191221122550',
-    faction: 'Rebel'
+    faction: 'Empire'
   },
   {
     id: 8,
