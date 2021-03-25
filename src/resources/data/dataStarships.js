@@ -216,3 +216,31 @@ export const starships = [
     faction: 'Rebel'
   }
 ]
+
+export const getIdList = () => {
+  const idList = []
+  starships.map(ship => {
+    idList.push(ship.id)
+  })
+  return idList
+}
+
+export const getRebelShips = () => {
+  const rebels = []
+  starships.map(ship => {
+    if (ship.faction === 'Rebel') {
+      rebels.push(ship)
+    }
+  })
+  return rebels
+}
+
+export const getEmpireShips = () => {
+  const rebels = []
+  starships.map(ship => {
+    if (ship.faction === 'Empire') {
+      rebels.push(ship)
+    }
+  })
+  return rebels
+}
