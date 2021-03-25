@@ -1,4 +1,4 @@
-export const planetes = [
+export const planets = [
   {
     id: 1,
     name: 'Tatooine',

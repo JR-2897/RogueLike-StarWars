@@ -1,4 +1,4 @@
-import {planetes} from '../resources/data/dataPlanets'
+import {planets} from '../resources/data/dataPlanets'
 
 export const getIdList = () => {
   const idList = []
@@ -8,9 +8,9 @@ export const getIdList = () => {
   return idList
 }
 
-export const transformDataForPlanete = (id,data) => {
-  const planete = planetes.filter( p => p.id === id )
-  return {...planete, garrison: data.population / 100, class: getClass(data.population) } 
+export const transformDataForPlanet = (id,data) => {
+  const planet = planets.filter( p => p.id === id )
+  return {...planet, garrison: data.population / 100, class: getClass(data.population) } 
 }
 
 

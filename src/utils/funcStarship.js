@@ -30,5 +30,5 @@ export const getEmpireShips = () => {
 
 export const transformDataForStarship = (id,data) => {
   const starship = starships.filter( p => p.id === id )
-  return {...starship, cost: data.cost_in_credits, maxCapacity: data.crew, model: data.model } 
+  return {...starship,name: data.name, cost: data.cost_in_credits, maxCapacity: data.crew, model: data.model } 
 }

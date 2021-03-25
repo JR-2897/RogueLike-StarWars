@@ -1,4 +1,4 @@
-import { UPDATE_PLANETELIST } from "../actions/planeteList"
+import { UPDATE_PLANETLIST } from "../actions/planetList"
 
 const initialState = {
   list: []
@@ -6,7 +6,7 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case UPDATE_PLANETELIST:
+    case UPDATE_PLANETLIST:
       return {
         list: action.payload
       }
