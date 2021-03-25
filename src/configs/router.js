@@ -12,7 +12,7 @@ import SpaceTravel from '../screens/SpaceTravel'
 import GameEnd from '../screens/GameOver'
 import Leaderboards from '../screens/Leaderboards'
 
-const router = () => {
+const Routes = () => {
   return (
     <Router>
       <Switch>
@@ -28,4 +28,4 @@ const router = () => {
   )
 }
 
-export default router
+export default Routes

@@ -6,6 +6,6 @@ export const updateProfile = newProfile => ({
   payload: newProfile
 })
 
-export const updateProfile = newProfile => ({
+export const resetProfile = () => ({
   type: RESET_PROFILE
 })

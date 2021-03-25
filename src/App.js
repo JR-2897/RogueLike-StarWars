@@ -1,25 +1,24 @@
 import React from 'react'
-import logo from './logo.svg'
+import { Provider } from 'react-redux'
+// import ThemeProvider from 'styled-components'
+
+import logo from './resources/logo_sw.png'
+import { store } from './configs/store'
+// import {theme} from './configs/theme'
+import Routes from './configs/router'
+
+import './configs/translations'
 import './App.css'
 
 function App() {
   return (
-    <div className='App'>
-      <header className='App-header'>
-        <img src={logo} className='App-logo' alt='logo' />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className='App-link'
-          href='https://reactjs.org'
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      {/* <ThemeProvider theme={theme}> */}
+      <div className='App'>
+        <Routes />
+      </div>
+      {/* </ThemeProvider> */}
+    </Provider>
   )
 }
 
