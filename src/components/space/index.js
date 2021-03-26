@@ -4,12 +4,16 @@ import { useSelector } from 'react-redux'
 import { useState } from 'react'
 import { useEffect } from 'react'
 import styled from 'styled-components'
+
 import CenterBlockSpace from '../centerBlockSpace'
 import ProfileComponent from '../profileComponent'
 import PlanetComponent from '../planetComponent'
+import r from '../../utils/random'
 
 const Space = props => {
   const profileState = useSelector(state => state.profile.profile)
+  const planetsList = useSelector(state => state.planetList.list)
+
   const [planet, setPlanet] = useState({
     name: 'Terre',
     faction: 'Rebel',
@@ -18,7 +22,7 @@ const Space = props => {
   })
   const [isEnemy, setIsEnemy] = useState(false)
   useEffect(() => {
-    //setPlanet(getRandomPlanet(profileState.faction,setEnemy))
+    setPlanet(planetsList[r(planetsList.length - 1)])
   }, [])
   return (
     <SpaceDiv>

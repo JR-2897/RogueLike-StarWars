@@ -6,13 +6,15 @@ const PlanetComponent = ({ planet }) => {
   const namePlanet = 'Nom'
   const classPlanet = 'Classe'
   const garrison = 'Garnison'
+  const faction = 'Faction'
+
   return (
     <PlanetDiv>
       Partie Planète
       <BlockImage src={planet.img} />
       <DetailComponentDiv>
         <StyledSpan>{`${namePlanet} : ${planet.name}`}</StyledSpan>
-        <StyledSpan>{`Faction : ${planet.faction}`}</StyledSpan>
+        <StyledSpan>{`${faction} : ${planet.faction}`}</StyledSpan>
         <StyledSpan>{`${garrison} : ${planet.garrisson}`}</StyledSpan>
         <StyledSpan>{`${classPlanet} : ${planet.class} `}</StyledSpan>
       </DetailComponentDiv>
