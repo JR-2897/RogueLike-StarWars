@@ -1,7 +1,12 @@
 import React from 'react'
+import MenuComponent from '../components/menuComponent'
 
 const Home = () => {
-  return <div>Home</div>
+  return (
+    <div>
+      <MenuComponent></MenuComponent>
+    </div>
+  )
 }
 
 export default Home
