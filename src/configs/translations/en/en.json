@@ -1,5 +1,27 @@
 {
   "translation": {
-    "StarWars" : "RogueLike - Star Wars"
+    "StarWars" : "RogueLike - Star Wars",
+    "TitleFormPlayer" : "Fill in this information to start playing:",
+    "ValidForm": "Play",
+    "errorMessageName": "You forgot to fill in your name",
+    "errorMessageStarship": "You forgot to choose your spaceship",
+    "placeholderName": "Commander's name",
+    "RebelAlliance": "Rebel Alliance",
+    "GalacticEmpire": "Galactic Empire",
+    "NbPlanetsVisited": "Number of planets visited",
+    "Admiral": "Admiral",
+    "NamePlanet": "Name",
+    "FightButton": "Fight",
+    "UseHyperDriveButton": "Use hyperdrive (skip planet)",
+    "StarshipShopButton": "Starship shop",
+    "RestockButton": "Restock",
+    "SkipButton": "Skip planet",
+    "Starships": "Please select a starship",
+    "StarshipName": "Starship name",
+    "Model": "Model",
+    "Crew": "Crew",
+    "ClassPlanet": "Class",
+    "Garrison": "Garrison",
+    "ChoiceFactions": "Please choose a faction"
   }
 }
