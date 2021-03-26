@@ -1,9 +1,9 @@
 import React from 'react'
-import GameEnd from '../components/GameOver'
+import EndGameComponent from '../components/endGameComponent'
 
 // Ecran de fin de partie (victoire ou défaite)
 const GameOver = () => {
-  return <GameEnd />
+  return <EndGameComponent />
 }
 
 export default GameOver
