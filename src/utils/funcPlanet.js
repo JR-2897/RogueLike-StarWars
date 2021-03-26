@@ -1,4 +1,4 @@
-import {planets} from '../resources/data/dataPlanets'
+import { planets } from '../resources/data/dataPlanets'
 
 export const getIdList = () => {
   const idList = []
@@ -8,19 +8,31 @@ export const getIdList = () => {
   return idList
 }
 
-export const transformDataForPlanet = (id,data) => {
-  const planet = planets.filter( p => p.id === id )
-  return {...planet, garrison: data.population / 100, class: getClass(data.population) } 
+export const transformDataForPlanet = (id, data) => {
+  const tmp = planets.filter(p => p.id == id)
+  const planet = tmp[0]
+
+  const planetObject = {
+    ...planet,
+    class: getClass(data.population, 0),
+    garrison:
+      data.population === 'unknown'
+        ? 100
+        : data.population < 100
+        ? 100
+        : getGarrison(data.population)
+  }
+  return planetObject
 }
 
+const getGarrison = pop => {
+  return pop * (100 - 5 * getClass(pop))
+}
 
-export const getClass = (nb)=>{
+export const getClass = nb => {
   let i = 1
-  while(i){
-    if(nb<Math.pow(10,i))
-    {
-      return i
-    }
-    i++;
+  while (nb > Math.pow(10, i)) {
+    i++
   }
+  return i
 }
