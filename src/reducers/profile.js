@@ -3,7 +3,7 @@ import { RESET_PROFILE, UPDATE_PROFILE } from '../actions/profile'
 const initialState = {
   profile: {
     name: '',
-    spaceship: { name: '', model: '', img: '', maxCapacity: 0 },
+    starship: { name: '', model: '', img: '', maxCapacity: 0 },
     credit: 0,
     counterHD: 0,
     faction: '',
