@@ -1,5 +1,27 @@
 {
   "translation": {
-    "StarWars": "RogueLike - La Guerre des Etoiles"
+    "StarWars": "RogueLike - La Guerre des Etoiles",
+    "TitleFormPlayer": "Renseigner ces informations pour commencer à jouer :",
+    "ValidForm": "Jouer",
+    "ErrorMessageName": "Vous avez oublié de renseigner votre nom",
+    "ErrorMessageStarship": "Vous avez oublié de choisir votre vaisseau",
+    "PlaceholderName": "Nom du commandant",
+    "RebelAlliance": "Alliance rebelle",
+    "GalacticEmpire": "Empire Galactique",
+    "NbPlanetsVisited": "Nombre de planète visitée",
+    "Admiral": "Amiral(e)",
+    "NamePlanet": "Nom",
+    "FightButton": "Combat",
+    "UseHyperDriveButton": "Activer l'hyperdrive (saute la planète)",
+    "StarshipShopButton": "Magasin de vaisseaux",
+    "RestockButton": "Se réapprovisionner",
+    "SkipButton": "Passer la planète",
+    "Starships": "Veuillez choisir un vaisseau",
+    "StarshipName": "Nom du vaisseau",
+    "Model": "Modèle",
+    "Crew": "Equipage",
+    "ClassPlanet": "Classe",
+    "Garrison": "Garnison",
+    "ChoiceFactions": "Veuillez choisir une faction"
   }
 }
