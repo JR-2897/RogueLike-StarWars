@@ -1,4 +1,4 @@
-import { UPDATE_PLANETLIST } from "../actions/planetList"
+import { UPDATE_PLANETLIST } from '../actions/planetList'
 
 const initialState = {
   list: []

@@ -1,4 +1,4 @@
-import {starships} from '../resources/data/dataStarships'
+import { starships } from '../resources/data/dataStarships'
 
 export const getIdList = () => {
   const idList = []
@@ -28,7 +28,14 @@ export const getEmpireShips = () => {
   return rebels
 }
 
-export const transformDataForStarship = (id,data) => {
-  const starship = starships.filter( p => p.id === id )
-  return {...starship,name: data.name, cost: data.cost_in_credits, maxCapacity: data.crew, model: data.model } 
+export const transformDataForStarship = (id, data) => {
+  const tmp = starships.filter(p => p.id === id)
+  const starship = tmp[0]
+  return {
+    ...starship,
+    name: data.name,
+    cost: data.cost_in_credits,
+    maxCapacity: data.crew,
+    model: data.model
+  }
 }
