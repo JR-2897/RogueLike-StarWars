@@ -15,14 +15,13 @@ export const getPlanetList = () => dispatch => {
       url: `https://swapi.dev/api/planets/${id}`
     })
       .then(res => {
-        // console.log(`resource :`, res)
         const planet = transformDataForPlanet(id, res.data)
-        // console.log(`transform : ${planet}`)
         list.push(planet)
       })
       .catch(err => {
         console.log(err)
       })
   })
+  console.log(list)
   dispatch(updatePlanetList(list))
 }

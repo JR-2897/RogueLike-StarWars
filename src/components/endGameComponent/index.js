@@ -7,7 +7,7 @@ const EndGameComponent = () => {
   const profileState = useSelector(state => state.profile.profile)
   const returnMenuButton = 'Retourner au Menu'
   const showLeaderBoardButton = 'Voir le tableau des scores'
-  const amiradl = 'Amiral'
+  const admiral = 'Amiral'
   const nameStarship = 'Nom de vaisseau'
   const crew = 'Equipage'
   const nbPlanetsVisited = 'Nombre de planète visitée'
@@ -15,7 +15,7 @@ const EndGameComponent = () => {
     <EndGameDiv>
       <ProfilDiv>
         <DetailProfileDiv>
-          <StyledSpan>{`${amiradl} : ${profileState.name} `}</StyledSpan>
+          <StyledSpan>{`${admiral} : ${profileState.name} `}</StyledSpan>
           <StyledSpan>{`Faction : ${profileState.faction}`}</StyledSpan>
           <StyledSpan>{`${nameStarship} : ${profileState.starship?.name}`}</StyledSpan>
           <StyledSpan>{`Credit : ${profileState.credit}`}</StyledSpan>

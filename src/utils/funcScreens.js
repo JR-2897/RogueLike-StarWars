@@ -1,11 +1,8 @@
-import { useHistory } from 'react'
-import { getPlanetList } from '../../actions/planetList'
-import { updateProfile } from '../../actions/profile'
+import { getPlanetList } from '../actions/planetList'
+import { updateProfile } from '../actions/profile'
 
-const history = useHistory()
-
-export const initGame = (dispatch, profile) => {
-  dispatch(getPlanetList())
+export const initGame = async (dispatch, history, profile) => {
+  await dispatch(getPlanetList())
 
   dispatch(updateProfile(profile))
 
@@ -16,36 +13,38 @@ export const submitProfileForm = (
   e,
   name,
   faction,
-  starship,
+  starshipName,
   rebelStarships,
   empireStarships,
-  newProfile,
   setStarship,
   t,
   setErrorMessage,
-  dispatch
+  dispatch,
+  history
 ) => {
   e.preventDefault()
   if (!name) {
     setErrorMessage(t('ErrorMessageName'))
     return
   }
-  if (faction === 'Rebel') {
-    setStarship(rebelStarships.find(x => x.name === starship))
-  } else {
-    setStarship(empireStarships.find(x => x.name === starship))
-  }
-  if (!starship) {
+  if (!starshipName) {
     setErrorMessage(t('ErrorMessageStarship'))
     return
   }
+  let starshipSelected = {}
+  if (faction === 'Rebel') {
+    starshipSelected = rebelStarships.find(x => x.name === starshipName)
+  } else {
+    starshipSelected = empireStarships.find(x => x.name === starshipName)
+  }
   const profile = {
     name: name,
-    starship: starship,
+    starship: starshipSelected,
     credit: 1000,
     counterHD: 3,
     faction: faction,
-    crewNb: starship.maxCapacity
+    visitedPlanets: 0,
+    crew: 1
   }
-  initGame(dispatch, profile)
+  initGame(dispatch, history, profile)
 }
