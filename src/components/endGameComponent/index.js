@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import ButtonComponent from '../buttonComponent'
 import { useSelector } from 'react-redux'
+import { addNewScore } from '../../utils/funcScore'
+import { goLeaderBoardButton, goMenuButton } from '../../utils/funcRouteButton'
 
 const EndGameComponent = () => {
   const profileState = useSelector(state => state.profile.profile)
@@ -11,6 +13,14 @@ const EndGameComponent = () => {
   const nameStarship = 'Nom de vaisseau'
   const crew = 'Equipage'
   const nbPlanetsVisited = 'Nombre de planète visitée'
+  useEffect(() => {
+    addNewScore(
+      profileState.name,
+      profileState.starship?.name,
+      profileState.credit,
+      profileState.visitedPlanets
+    )
+  }, [])
   return (
     <EndGameDiv>
       <ProfilDiv>
@@ -20,25 +30,23 @@ const EndGameComponent = () => {
           <StyledSpan>{`${nameStarship} : ${profileState.starship?.name}`}</StyledSpan>
           <StyledSpan>{`Credit : ${profileState.credit}`}</StyledSpan>
           <StyledSpan>{`${crew} : ${profileState.crew}`}</StyledSpan>
-          <StyledSpan>{`${nbPlanetsVisited} : ${profileState.nbPlanetsVisited}`}</StyledSpan>
+          <StyledSpan>{`${nbPlanetsVisited} : ${profileState.visitedPlanets}`}</StyledSpan>
         </DetailProfileDiv>
         <BlockImage src={profileState.starship?.img} />
       </ProfilDiv>
       <ButtonDiv>
         <ButtonComponent
-          onClickButton={actionButton}
+          onClickButton={goLeaderBoardButton}
           textButton={showLeaderBoardButton}
         ></ButtonComponent>
         <ButtonComponent
-          onClickButton={actionButton}
+          onClickButton={goMenuButton}
           textButton={returnMenuButton}
         ></ButtonComponent>
       </ButtonDiv>
     </EndGameDiv>
   )
 }
-
-const actionButton = () => {}
 
 const EndGameDiv = styled.div`
   display: flex;
