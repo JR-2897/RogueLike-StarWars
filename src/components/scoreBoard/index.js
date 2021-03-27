@@ -8,7 +8,7 @@ import ButtonComponent from '../buttonComponent'
 
 const ScoreBoard = props => {
   const [scoreList, setScoreList] = useState([])
-  const amiradl = 'Amiral'
+  const admiral = 'Amiral'
   const nameStarship = 'Nom de vaisseau'
   const nbPlanetsVisited = 'Nombre de planète visitée'
   const returnMenuButton = 'Retourner au Menu'
@@ -21,7 +21,7 @@ const ScoreBoard = props => {
       <table>
         <thead>
           <StyledScoreHeaderTr>
-            <td>{amiradl}</td>
+            <td>{admiral}</td>
             <td>{nameStarship}</td>
             <td>Credit</td>
             <td>{nbPlanetsVisited}</td>
@@ -31,10 +31,10 @@ const ScoreBoard = props => {
           {scoreList.map(score => {
             return (
               <StyledScoreSerieTr key={score.id}>
-                <StyledScoreSerieTd>{score.amiradl}</StyledScoreSerieTd>
+                <StyledScoreSerieTd>{score.admiral}</StyledScoreSerieTd>
                 <StyledScoreSerieTd>{score.nameStarship}</StyledScoreSerieTd>
                 <StyledScoreSerieTd>{score.credit}</StyledScoreSerieTd>
-                <StyledScoreSerieTd>{score.visitedPlanet}</StyledScoreSerieTd>
+                <StyledScoreSerieTd>{score.visitedPlanets}</StyledScoreSerieTd>
               </StyledScoreSerieTr>
             )
           })}

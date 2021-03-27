@@ -17,7 +17,7 @@ export const getScoreList = setScoreList => {
   setScoreList(tab)
 }
 
-export const addNewScore = (amiradl, nameStarship, credit, visitedPlanet) => {
+export const addNewScore = (admiral, nameStarship, credit, visitedPlanets) => {
   let isAlreadyAdd = localStorage.getItem('isAlreadyAdd')
   if (!isAlreadyAdd) {
     let tmp = localStorage.getItem('scoreList')
@@ -28,10 +28,10 @@ export const addNewScore = (amiradl, nameStarship, credit, visitedPlanet) => {
     }
     let playerScore = {
       id: uuidv4(),
-      amiradl: amiradl,
+      admiradl: admiral,
       nameStarship: nameStarship,
       credit: credit,
-      visitedPlanet: visitedPlanet
+      visitedPlanet: visitedPlanets
     }
     tmp.push(playerScore)
     let tab = _.sortBy(tmp, [

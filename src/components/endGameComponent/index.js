@@ -9,28 +9,28 @@ const EndGameComponent = () => {
   const profileState = useSelector(state => state.profile.profile)
   const returnMenuButton = 'Retourner au Menu'
   const showLeaderBoardButton = 'Voir le tableau des scores'
-  const amiradl = 'Amiral'
+  const admiral = 'Amiral'
   const nameStarship = 'Nom de vaisseau'
   const crew = 'Equipage'
   const nbPlanetsVisited = 'Nombre de planète visitée'
   useEffect(() => {
     addNewScore(
-      profileState.amiradl,
+      profileState.name,
       profileState.starship?.name,
       profileState.credit,
-      profileState.visitedPlanet
+      profileState.visitedPlanets
     )
   }, [])
   return (
     <EndGameDiv>
       <ProfilDiv>
         <DetailProfileDiv>
-          <StyledSpan>{`${amiradl} : ${profileState.name} `}</StyledSpan>
+          <StyledSpan>{`${admiral} : ${profileState.name} `}</StyledSpan>
           <StyledSpan>{`Faction : ${profileState.faction}`}</StyledSpan>
           <StyledSpan>{`${nameStarship} : ${profileState.starship?.name}`}</StyledSpan>
           <StyledSpan>{`Credit : ${profileState.credit}`}</StyledSpan>
           <StyledSpan>{`${crew} : ${profileState.crew}`}</StyledSpan>
-          <StyledSpan>{`${nbPlanetsVisited} : ${profileState.nbPlanetsVisited}`}</StyledSpan>
+          <StyledSpan>{`${nbPlanetsVisited} : ${profileState.visitedPlanets}`}</StyledSpan>
         </DetailProfileDiv>
         <BlockImage src={profileState.starship?.img} />
       </ProfilDiv>
