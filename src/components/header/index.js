@@ -38,12 +38,39 @@ const Header = () => {
 }
 
 const HeaderBalise = styled.header``
-const NavBar = styled.nav``
-const DivChangeLanguage = styled.div``
-const ChangeLanguage = styled.button``
-const DivTitleWebSite = styled.div``
+const NavBar = styled.nav`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+`
+const DivChangeLanguage = styled.div`
+  margin: 2px 20px;
+`
+const ChangeLanguage = styled.button`
+  margin: 5px 0px;
+  border: yellow solid 1px;
+  padding: 5px 10px;
+  margin: 0px 5px;
+  border-radius: 15px;
+  color: yellow;
+  background-color: black;
+`
+const DivTitleWebSite = styled.div`
+  flex: 1;
+`
 const TitleWebSite = styled.h1``
-const DivChangeDayNightMode = styled.div``
-const ChangeDayNightMode = styled.button``
+const DivChangeDayNightMode = styled.div`
+  margin: 2px 20px;
+`
+const ChangeDayNightMode = styled.button`
+  margin: 5px 0px;
+  border: yellow solid 1px;
+  padding: 5px 10px;
+  margin: 0px 5px;
+  border-radius: 15px;
+  color: yellow;
+  background-color: black;
+`
 
 export default Header

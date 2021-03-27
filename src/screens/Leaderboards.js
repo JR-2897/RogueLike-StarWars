@@ -1,8 +1,9 @@
 import React from 'react'
+import ScoreBoard from '../components/scoreBoard'
 
 // Liste des meilleurs scores
 const Leaderboards = () => {
-  return <div></div>
+  return <ScoreBoard></ScoreBoard>
 }
 
 export default Leaderboards
