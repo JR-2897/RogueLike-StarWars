@@ -7,6 +7,8 @@ import { updateProfile } from '../../actions/profile'
 
 import SelectionStarshipRadioButton from '../selectionStarshipRadioButton'
 import SelectionFactionRadioButton from '../selectionFactionRadioButton'
+import ButtonComponent from '../buttonComponent'
+import { goMenuButton } from '../../utils/funcRouteButton'
 
 const submit = (
   e,
@@ -50,6 +52,7 @@ const submit = (
 const Player = () => {
   const [errorMessage, setErrorMessage] = useState('')
   const newProfile = useSelector(state => state.profile.profile)
+  const returnMenuButton = 'Retourner au Menu'
   const [starship, setStarship] = useState({
     name: '',
     model: '',
@@ -145,6 +148,12 @@ const Player = () => {
         <SubmitInput type='submit' value={t('ValidForm')}></SubmitInput>
         <AlertMessage>{errorMessage}</AlertMessage>
       </Form>
+      <ButtonDiv>
+        <ButtonComponent
+          onClickButton={goMenuButton}
+          textButton={returnMenuButton}
+        ></ButtonComponent>
+      </ButtonDiv>
     </DivForm>
   )
 }
@@ -154,6 +163,12 @@ const PlayerTitle = styled.span``
 const Form = styled.form``
 const InputPlayer = styled.input``
 const SubmitInput = styled.input``
-const AlertMessage = styled.span``
+const AlertMessage = styled.span`
+  color: red;
+`
+
+const ButtonDiv = styled.div`
+  margin: 20px 0px;
+`
 
 export default Player

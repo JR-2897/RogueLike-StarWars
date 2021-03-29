@@ -22,6 +22,9 @@
     "Crew": "Crew",
     "ClassPlanet": "Class",
     "Garrison": "Garrison",
-    "ChoiceFactions": "Please choose a faction"
+    "ChoiceFactions": "Please choose a faction",
+    "ReturnMenuButton": "Return to menu",
+    "ShowLeaderBoardButton" :"Go to leaderboard",
+    "StartButton": "Start game"
   }
 }

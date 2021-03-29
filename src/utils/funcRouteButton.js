@@ -5,8 +5,8 @@ export const goLeaderBoardButton = history => {
   history.push('/leaderboards')
 }
 
-export const startButton = history => {
+export const startActionButton = history => {
   localStorage.removeItem('isAlreadyAdd')
-  localStorage.addItem('step', 1)
+  localStorage.setItem('step', 1)
   history.push('/profile')
 }
