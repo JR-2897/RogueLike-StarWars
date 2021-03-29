@@ -14,7 +14,7 @@ export const transformDataForPlanet = (id, data) => {
 
   const planetObject = {
     ...planet,
-    class: getClass(data.population, 0),
+    class: getClass(data.population),
     garrison:
       data.population === 'unknown'
         ? 100

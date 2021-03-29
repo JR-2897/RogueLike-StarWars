@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 const ProfileComponent = ({ profileState }) => {
-  const amiradl = 'Amiral'
+  const admiral = 'Amiral'
   const nameStarship = 'Nom de vaisseau'
   const model = 'Modèle'
   const crew = 'Equipage'
@@ -11,7 +11,7 @@ const ProfileComponent = ({ profileState }) => {
     <ProfileDiv>
       Partie Vaisseau
       <DetailComponentDiv>
-        <StyledSpan>{`${amiradl} : ${profileState.name} `}</StyledSpan>
+        <StyledSpan>{`${admiral} : ${profileState.name} `}</StyledSpan>
         <StyledSpan>{`Faction : ${profileState.faction}`}</StyledSpan>
       </DetailComponentDiv>
       <BlockImage src={profileState.starship?.img} />

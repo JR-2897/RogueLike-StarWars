@@ -10,9 +10,8 @@ import ProfileComponent from '../profileComponent'
 import PlanetComponent from '../planetComponent'
 import r from '../../utils/random'
 
-const Space = props => {
+const Space = ({ planetsList }) => {
   const profileState = useSelector(state => state.profile.profile)
-  const planetsList = useSelector(state => state.planetList.list)
 
   const [planet, setPlanet] = useState({
     name: 'Terre',
@@ -22,8 +21,10 @@ const Space = props => {
   })
   const [isEnemy, setIsEnemy] = useState(false)
   useEffect(() => {
-    setPlanet(planetsList[r(planetsList.length - 1)])
-  }, [])
+    console.log(`planetsList[0]`, planetsList[0])
+    let currentPlanet = planetsList[r(planetsList.length - 1)]
+    setPlanet(currentPlanet)
+  }, [planetsList])
   return (
     <SpaceDiv>
       <ProfileComponent profileState={profileState}></ProfileComponent>

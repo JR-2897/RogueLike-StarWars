@@ -9,47 +9,11 @@ import SelectionStarshipRadioButton from '../selectionStarshipRadioButton'
 import SelectionFactionRadioButton from '../selectionFactionRadioButton'
 import ButtonComponent from '../buttonComponent'
 import { goMenuButton } from '../../utils/funcRouteButton'
-
-const submit = (
-  e,
-  name,
-  faction,
-  starship,
-  rebelStarships,
-  empireStarships,
-  newProfile,
-  setStarship,
-  t,
-  setErrorMessage,
-  dispatch
-) => {
-  e.preventDefault()
-  if (!name) {
-    setErrorMessage(t('ErrorMessageName'))
-    return
-  }
-  if (faction === 'Rebel') {
-    setStarship(rebelStarships.find(x => x.name === starship))
-  } else {
-    setStarship(empireStarships.find(x => x.name === starship))
-  }
-  if (!starship) {
-    setErrorMessage(t('ErrorMessageStarship'))
-    return
-  }
-  dispatch(
-    updateProfile({
-      name: name,
-      starship: starship,
-      credit: 1000,
-      counterHD: 3,
-      faction: faction,
-      crewNb: starship.maxCapacity
-    })
-  )
-}
+import { submitProfileForm } from '../../utils/funcScreens'
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min'
 
 const Player = () => {
+  const history = useHistory()
   const [errorMessage, setErrorMessage] = useState('')
   const newProfile = useSelector(state => state.profile.profile)
   const returnMenuButton = 'Retourner au Menu'
@@ -108,18 +72,18 @@ const Player = () => {
       <PlayerTitle>{t('TitleFormPlayer')}</PlayerTitle>
       <Form
         onSubmit={e =>
-          submit(
+          submitProfileForm(
             e,
             name,
             faction,
             starship,
             rebelStarships,
             empireStarships,
-            newProfile,
             setStarship,
             t,
             setErrorMessage,
-            dispatch
+            dispatch,
+            history
           )
         }
       >
