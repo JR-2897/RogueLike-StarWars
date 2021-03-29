@@ -22,6 +22,9 @@
     "Crew": "Equipage",
     "ClassPlanet": "Classe",
     "Garrison": "Garnison",
-    "ChoiceFactions": "Veuillez choisir une faction"
+    "ChoiceFactions": "Veuillez choisir une faction",
+    "ReturnMenuButton": "Retourner au menu",
+    "ShowLeaderBoardButton" :"Aller au tableau des scores",
+    "StartButton": "Commencer"
   }
 }

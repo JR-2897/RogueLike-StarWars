@@ -39,11 +39,12 @@ const Space = ({ planetsList }) => {
 
 const SpaceDiv = styled.div`
   display: flex;
-  flex-direction: row; //column
+  flex-direction: column;
+  @media (min-width: 600px) {
+    flex-direction: row;
+  }
   align-items: center;
   justify-content: center;
-  color: yellow;
-  background-color: black;
 `
 Space.propTypes = {}
 

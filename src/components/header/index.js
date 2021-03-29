@@ -49,12 +49,12 @@ const DivChangeLanguage = styled.div`
 `
 const ChangeLanguage = styled.button`
   margin: 5px 0px;
-  border: yellow solid 1px;
+  border: ${props => props.theme.border} solid 1px;
   padding: 5px 10px;
   margin: 0px 5px;
   border-radius: 15px;
-  color: yellow;
-  background-color: black;
+  color: ${props => props.theme.text};
+  background-color: ${props => props.theme.background};
 `
 const DivTitleWebSite = styled.div`
   flex: 1;
@@ -65,12 +65,12 @@ const DivChangeDayNightMode = styled.div`
 `
 const ChangeDayNightMode = styled.button`
   margin: 5px 0px;
-  border: yellow solid 1px;
+  border: ${props => props.theme.border} solid 1px;
   padding: 5px 10px;
   margin: 0px 5px;
   border-radius: 15px;
-  color: yellow;
-  background-color: black;
+  color: ${props => props.theme.text};
+  background-color: ${props => props.theme.background};
 `
 
 export default Header

@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import { useState } from 'react'
 import { getScoreList } from '../../utils/funcScore'
 import ButtonComponent from '../buttonComponent'
+import { goMenuButton } from '../../utils/funcRouteButton'
 
 const ScoreBoard = props => {
   const [scoreList, setScoreList] = useState([])
@@ -42,7 +43,7 @@ const ScoreBoard = props => {
       </table>
       <ButtonDiv>
         <ButtonComponent
-          onClickButton={() => {}}
+          onClickButton={goMenuButton}
           textButton={returnMenuButton}
         ></ButtonComponent>
       </ButtonDiv>
