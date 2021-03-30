@@ -17,12 +17,7 @@ const Player = () => {
   const [errorMessage, setErrorMessage] = useState('')
   const newProfile = useSelector(state => state.profile.profile)
   const returnMenuButton = 'Retourner au Menu'
-  const [starship, setStarship] = useState({
-    name: '',
-    model: '',
-    img: '',
-    maxCapacity: 0
-  })
+  const [starshipName, setStarshipName] = useState('')
   const rebelStarships = [
     {
       name: 'X-Wing',
@@ -76,10 +71,10 @@ const Player = () => {
             e,
             name,
             faction,
-            starship,
+            starshipName,
             rebelStarships,
             empireStarships,
-            setStarship,
+            setStarshipName,
             t,
             setErrorMessage,
             dispatch,
@@ -98,14 +93,14 @@ const Player = () => {
         ></SelectionFactionRadioButton>
         {faction === 'Rebel' ? (
           <SelectionStarshipRadioButton
-            setStarship={setStarship}
-            starship={starship}
+            setStarship={setStarshipName}
+            starship={starshipName}
             starships={rebelStarships}
           ></SelectionStarshipRadioButton>
         ) : (
           <SelectionStarshipRadioButton
-            setStarship={setStarship}
-            starship={starship}
+            setStarship={setStarshipName}
+            starship={starshipName}
             starships={empireStarships}
           ></SelectionStarshipRadioButton>
         )}
