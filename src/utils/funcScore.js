@@ -7,7 +7,7 @@ export const getScoreList = setScoreList => {
     tab = [
       {
         id: 1,
-        amiradl: 'Albator',
+        admiral: 'Albator',
         nameStarship: 'W-Victory',
         credit: 9999999999999,
         visitedPlanet: 50

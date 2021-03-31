@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { useDispatch, useSelector } from 'react-redux'
 import { useTranslation } from 'react-i18next'
+import PropTypes from 'prop-types'
 
 import { updateProfile } from '../../actions/profile'
 
@@ -12,7 +13,7 @@ import { goMenuButton } from '../../utils/funcRouteButton'
 import { submitProfileForm } from '../../utils/funcScreens'
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min'
 
-const Player = () => {
+const Player = ({ rebelList, empireList }) => {
   const history = useHistory()
   const [errorMessage, setErrorMessage] = useState('')
   const newProfile = useSelector(state => state.profile.profile)
@@ -23,46 +24,8 @@ const Player = () => {
     img: '',
     maxCapacity: 0
   })
-  const rebelStarships = [
-    {
-      name: 'X-Wing',
-      model: 'T-65 X-Wing',
-      img: '../../../public/logo_sw.png',
-      maxCapacity: 1
-    },
-    {
-      name: 'Y-Wing',
-      model: 'T-65 Y-Wing',
-      img: '../../../public/logo_sw.png',
-      maxCapacity: 2
-    },
-    {
-      name: 'B-Wing',
-      model: 'T-65 B-Wing',
-      img: '../../../public/logo_sw.png',
-      maxCapacity: 1
-    }
-  ]
-  const empireStarships = [
-    {
-      name: 'TIE fighter',
-      model: 'TIE',
-      img: '../../../public/logo_sw.png',
-      maxCapacity: 1
-    },
-    {
-      name: 'TIE interceptor',
-      model: 'TIE',
-      img: '../../../public/logo_sw.png',
-      maxCapacity: 1
-    },
-    {
-      name: 'TIE bomber',
-      model: 'TIE',
-      img: '../../../public/logo_sw.png',
-      maxCapacity: 1
-    }
-  ]
+  const rebelStarships = [rebelList[5], rebelList[7], rebelList[16]]
+  const empireStarships = [empireList[4], empireList[5], empireList[11]]
   const [faction, setFaction] = useState('Rebel')
   const [name, setName] = useState('')
   const dispatch = useDispatch()
@@ -76,10 +39,10 @@ const Player = () => {
             e,
             name,
             faction,
-            starship,
+            starshipName,
             rebelStarships,
             empireStarships,
-            setStarship,
+            setStarshipName,
             t,
             setErrorMessage,
             dispatch,
@@ -98,14 +61,14 @@ const Player = () => {
         ></SelectionFactionRadioButton>
         {faction === 'Rebel' ? (
           <SelectionStarshipRadioButton
-            setStarship={setStarship}
-            starship={starship}
+            setStarship={setStarshipName}
+            starship={starshipName}
             starships={rebelStarships}
           ></SelectionStarshipRadioButton>
         ) : (
           <SelectionStarshipRadioButton
-            setStarship={setStarship}
-            starship={starship}
+            setStarship={setStarshipName}
+            starship={starshipName}
             starships={empireStarships}
           ></SelectionStarshipRadioButton>
         )}
@@ -134,5 +97,10 @@ const AlertMessage = styled.span`
 const ButtonDiv = styled.div`
   margin: 20px 0px;
 `
+
+Player.propTypes = {
+  rebelList: PropTypes.array,
+  empireList: PropTypes.array
+}
 
 export default Player

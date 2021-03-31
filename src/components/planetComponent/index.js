@@ -8,7 +8,7 @@ const PlanetComponent = ({ planet }) => {
   const garrison = 'Garnison'
   const faction = 'Faction'
 
-  console.log(`planet`, planet)
+  // console.log(`planet`, planet)
   return (
     <PlanetDiv>
       Partie Planète
