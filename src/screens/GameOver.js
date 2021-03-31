@@ -5,9 +5,9 @@ import PropTypes from 'prop-types'
 
 // Ecran de fin de partie (victoire ou défaite)
 const GameOver = ({ history }) => {
-  // useEffect(() => {
-  //   accessAuthorize(history, 3)
-  // }, [])
+  useEffect(() => {
+    accessAuthorize(history, 3)
+  }, [])
   return <EndGameComponent />
 }
 

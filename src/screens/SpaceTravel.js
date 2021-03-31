@@ -7,9 +7,9 @@ import { useSelector } from 'react-redux'
 // Ecran principal avec les fonctionnalités d'une partie.
 const SpaceTravel = ({ history }) => {
   const planetsList = useSelector(state => state.planetList.list)
-  // useEffect(() => {
-  //   accessAuthorize(history, 2)
-  // }, [])
+  useEffect(() => {
+    accessAuthorize(history, 2)
+  }, [])
   return (
     <div>
       <Space planetsList={planetsList}></Space>
