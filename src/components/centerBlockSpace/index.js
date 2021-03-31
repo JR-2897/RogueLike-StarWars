@@ -1,24 +1,46 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import ButtonComponent from '../buttonComponent'
+import { launchFightAnimation } from '../../utils/funcAnimation'
 
-const CenterBlockSpace = ({ isEnemy, visitedPlanets }) => {
+const CenterBlockSpace = ({
+  isEnemy,
+  visitedPlanets,
+  fightAnimation,
+  setFightAnimation
+}) => {
   const nbPlanetsVisited = 'Nombre de planète visitée'
   const fightButton = 'Combattre'
   const skipButton = 'Passer'
   const useHyperDriveButton = 'Hyper drive'
   const shopStarshipButton = 'Magasin'
   const restockButton = 'Se répprovisionner'
+  const animationTimeout = useRef(null)
+  const refActive = useRef(null)
+  const [active, setActive] = useState(false)
+  useEffect(() => {
+    if (active) {
+      animationTimeout.current = setTimeout(() => {
+        setFightAnimation(
+          fightAnimation == 'animated2' ? 'animated1' : 'animated2'
+        )
+      }, 550)
+      clearTimeout(animationTimeout)
+    }
+  }, [active, fightAnimation])
   return (
     <CenterDiv>
       <BlockComponentsDiv>{`${nbPlanetsVisited} : ${visitedPlanets}`}</BlockComponentsDiv>
       {isEnemy ? (
         <ButtonDiv>
-          <ButtonComponent
-            onClickButton={actionButton}
-            textButton={fightButton}
-          ></ButtonComponent>
+          <StyledButton
+            onClick={() => {
+              launchFightAnimation(refActive, setActive)
+            }}
+          >
+            {fightButton}
+          </StyledButton>
           <ButtonComponent
             onClickButton={actionButton}
             textButton={useHyperDriveButton}
@@ -40,6 +62,7 @@ const CenterBlockSpace = ({ isEnemy, visitedPlanets }) => {
           ></ButtonComponent>
         </ButtonDiv>
       )}
+      <button>Test</button>
     </CenterDiv>
   )
 }
@@ -61,9 +84,19 @@ const ButtonDiv = styled.div`
   display: flex;
   flex-direction: column;
 `
+const StyledButton = styled.button`
+  margin: 5px 0px;
+  border: ${props => props.theme.border} solid 1px;
+  padding: 2px 4px;
+  border-radius: 10px;
+  color: ${props => props.theme.text};
+  background-color: ${props => props.theme.background};
+`
 CenterBlockSpace.propTypes = {
   isEnemy: PropTypes.bool,
-  visitedPlanets: PropTypes.number
+  visitedPlanets: PropTypes.number,
+  fightAnimation: PropTypes.string,
+  setFightAnimation: PropTypes.func
 }
 
 export default CenterBlockSpace

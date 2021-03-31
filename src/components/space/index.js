@@ -12,6 +12,7 @@ import r from '../../utils/random'
 
 const Space = ({ planetsList }) => {
   const profileState = useSelector(state => state.profile.profile)
+  const [fightAnimation, setFightAnimation] = useState('initial')
 
   const [planet, setPlanet] = useState({
     name: 'Terre',
@@ -27,10 +28,15 @@ const Space = ({ planetsList }) => {
   }, [])
   return (
     <SpaceDiv>
-      <ProfileComponent profileState={profileState}></ProfileComponent>
+      <ProfileComponent
+        profileState={profileState}
+        fightAnimation={fightAnimation}
+      ></ProfileComponent>
       <CenterBlockSpace
         isEnemy={isEnemy}
         visitedPlanets={profileState.visitedPlanets}
+        fightAnimation={fightAnimation}
+        setFightAnimation={setFightAnimation}
       ></CenterBlockSpace>
       <PlanetComponent planet={planet}></PlanetComponent>
     </SpaceDiv>
@@ -46,6 +52,8 @@ const SpaceDiv = styled.div`
   align-items: center;
   justify-content: center;
 `
-Space.propTypes = {}
+Space.propTypes = {
+  planetsList: PropTypes.array
+}
 
 export default Space

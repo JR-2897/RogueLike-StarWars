@@ -1,8 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { motion } from 'framer-motion'
+import { variantFightAnimation } from '../../utils/funcAnimation'
 
-const ProfileComponent = ({ profileState }) => {
+const ProfileComponent = ({ profileState, fightAnimation }) => {
   const admiral = 'Amiral'
   const nameStarship = 'Nom de vaisseau'
   const model = 'Modèle'
@@ -14,7 +16,11 @@ const ProfileComponent = ({ profileState }) => {
         <StyledSpan>{`${admiral} : ${profileState.name} `}</StyledSpan>
         <StyledSpan>{`Faction : ${profileState.faction}`}</StyledSpan>
       </DetailComponentDiv>
-      <BlockImage src={profileState.starship?.img} />
+      <BlockImage
+        src={profileState.starship?.img}
+        variants={variantFightAnimation}
+        animate={fightAnimation}
+      />
       <DetailComponentDiv>
         <StyledSpan>{`${nameStarship} : ${profileState.starship?.name}`}</StyledSpan>
         <StyledSpan>{`${model} : ${profileState.starship?.model}`}</StyledSpan>
@@ -32,7 +38,8 @@ const ProfileDiv = styled.div`
   align-items: center;
   margin: 20px 5px;
 `
-const BlockImage = styled.img`
+const BlockImage = styled(motion.img)`
+  align-items: center;
   width: 300px;
   padding: 5px;
 `
@@ -42,6 +49,8 @@ const DetailComponentDiv = styled.div`
   flex-direction: column;
   text-align: left;
   margin: 5px 5px;
+  padding: 0px 10px;
+  width: 300px;
 `
 
 const StyledSpan = styled.span`
@@ -49,7 +58,8 @@ const StyledSpan = styled.span`
 `
 
 ProfileComponent.propTypes = {
-  profileState: PropTypes.object
+  profileState: PropTypes.object,
+  fightAnimation: PropTypes.string
 }
 
 export default ProfileComponent
