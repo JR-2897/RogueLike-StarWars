@@ -1,5 +1,7 @@
 import { getPlanetList } from '../actions/planetList'
 import { updateProfile } from '../actions/profile'
+import { getStarshipList } from '../actions/starshipList'
+import { resetProfile } from '../actions/profile'
 
 export const initGame = async (dispatch, history, profile) => {
   await dispatch(getPlanetList())
@@ -7,6 +9,14 @@ export const initGame = async (dispatch, history, profile) => {
   dispatch(updateProfile(profile))
 
   history.push('/spacetravel')
+}
+
+export const initProfile = async (dispatch, history) => {
+  await dispatch(getStarshipList())
+
+  dispatch(resetProfile())
+
+  history.push('/profile')
 }
 
 export const submitProfileForm = (

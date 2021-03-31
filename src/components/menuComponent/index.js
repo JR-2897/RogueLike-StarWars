@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import ButtonComponent from '../buttonComponent'
 import { useDispatch } from 'react-redux'
-import { resetProfile } from '../../actions/profile'
 import {
   goLeaderBoardButton,
   startActionButton
@@ -17,8 +16,7 @@ const MenuComponent = props => {
     <MenuDiv>
       <ButtonComponent
         onClickButton={(history, dispatch) => {
-          dispatch(resetProfile())
-          startActionButton(history)
+          startActionButton(dispatch, history)
         }}
         dispatch={dispatch}
         textButton={startButton}
