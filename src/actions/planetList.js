@@ -8,7 +8,6 @@ export const updatePlanetList = planetList => ({
 })
 
 export const getPlanetList = () => dispatch => {
-  let list = []
   getIdList().forEach(id => {
     axios({
       method: 'GET',
@@ -16,12 +15,10 @@ export const getPlanetList = () => dispatch => {
     })
       .then(res => {
         const planet = transformDataForPlanet(id, res.data)
-        list.push(planet)
+        dispatch(updatePlanetList(planet))
       })
       .catch(err => {
         console.log(err)
       })
   })
-  console.log(list)
-  dispatch(updatePlanetList(list))
 }

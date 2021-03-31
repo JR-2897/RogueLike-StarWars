@@ -35,7 +35,7 @@ const LabelsStarships = styled.label``
 SelectionStarshipRadioButton.propTypes = {
   setStarship: PropTypes.func,
   starships: PropTypes.array,
-  starship: PropTypes.object
+  starship: PropTypes.string
 }
 
 export default SelectionStarshipRadioButton
