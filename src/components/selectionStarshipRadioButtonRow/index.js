@@ -31,7 +31,7 @@ const RadioButtonImg = styled.img``
 SelectionStarshipRadioButtonRow.propTypes = {
   setStarship: PropTypes.func,
   valueStarship: PropTypes.object,
-  starship: PropTypes.object
+  starship: PropTypes.string
 }
 
 export default SelectionStarshipRadioButtonRow

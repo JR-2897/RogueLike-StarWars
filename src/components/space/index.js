@@ -22,10 +22,10 @@ const Space = ({ planetsList }) => {
   })
   const [isEnemy, setIsEnemy] = useState(false)
   useEffect(() => {
-    console.log(`planetsList[0]`, planetsList[0])
     let currentPlanet = planetsList[r(planetsList.length - 1)]
     setPlanet(currentPlanet)
-  }, [planetsList])
+    setIsEnemy(currentPlanet.faction !== profileState.faction)
+  }, [])
   return (
     <SpaceDiv>
       <ProfileComponent
