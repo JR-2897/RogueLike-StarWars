@@ -6,6 +6,12 @@ import { launchFightAnimation } from '../../utils/funcAnimation'
 import { fight } from '../../utils/funcFight'
 import { useDispatch, useSelector } from 'react-redux'
 import { updateCrew, incPlanets } from '../../actions/profile'
+import {
+  restockActionButton,
+  shopStarshipActionButton,
+  skipPlanetActionButton,
+  useHyperDriveActionButton
+} from '../../utils/funcRouteButton'
 
 const CenterBlockSpace = ({
   isEnemy,
@@ -13,7 +19,8 @@ const CenterBlockSpace = ({
   fightAnimation,
   setFightAnimation,
   currentPlanet,
-  setHasLost
+  setHasLost,
+  profile
 }) => {
   const nbPlanetsVisited = 'Nombre de planète visitée'
   const fightButton = 'Combattre'
@@ -21,10 +28,10 @@ const CenterBlockSpace = ({
   const useHyperDriveButton = 'Hyper drive'
   const shopStarshipButton = 'Magasin'
   const restockButton = 'Se répprovisionner'
+  const dispatch = useDispatch()
   const animationTimeout = useRef(null)
   const refActive = useRef(null)
   const [active, setActive] = useState(false)
-  const dispatch = useDispatch()
   const [message, setMessage] = useState('')
   useEffect(() => {
     if (active) {
@@ -51,24 +58,28 @@ const CenterBlockSpace = ({
           >
             {fightButton}
           </StyledButton>
-          <ButtonComponent
-            onClickButton={actionButton}
-            textButton={useHyperDriveButton}
-          ></ButtonComponent>
+          <StyledButton
+            onClick={() =>
+              useHyperDriveActionButton(dispatch, profile, setMessage)
+            }
+          >
+            {useHyperDriveButton}
+          </StyledButton>
           <StyledSpan>{message}</StyledSpan>
         </ButtonDiv>
       ) : (
         <ButtonDiv>
           <ButtonComponent
-            onClickButton={actionButton}
+            onClickButton={shopStarshipActionButton}
             textButton={shopStarshipButton}
           ></ButtonComponent>
           <ButtonComponent
-            onClickButton={actionButton}
+            onClickButton={restockActionButton}
             textButton={restockButton}
           ></ButtonComponent>
           <ButtonComponent
-            onClickButton={actionButton}
+            onClickButton={skipPlanetActionButton}
+            dispatch={dispatch}
             textButton={skipButton}
           ></ButtonComponent>
         </ButtonDiv>
@@ -76,7 +87,6 @@ const CenterBlockSpace = ({
     </CenterDiv>
   )
 }
-const actionButton = () => {}
 
 const CenterDiv = styled.div`
   display: flex;
@@ -113,7 +123,8 @@ CenterBlockSpace.propTypes = {
   fightAnimation: PropTypes.string,
   setFightAnimation: PropTypes.func,
   currentPlanet: PropTypes.object,
-  setHasLost: PropTypes.func
+  setHasLost: PropTypes.func,
+  profile: PropTypes.object
 }
 
 export default CenterBlockSpace

@@ -19,12 +19,25 @@ const Player = ({ rebelList, empireList }) => {
   const newProfile = useSelector(state => state.profile.profile)
   const returnMenuButton = 'Retourner au Menu'
   const [starshipName, setStarshipName] = useState('')
-  const rebelStarships = [rebelList[5], rebelList[7], rebelList[16]]
-  const empireStarships = [empireList[4], empireList[5], empireList[11]]
+  const [starship, setStarship] = useState({
+    name: '',
+    model: '',
+    img: '',
+    maxCapacity: 0
+  })
+  const [rebelStarships, setRebelStarships] = useState([])
+  const [empireStarships, setEmpireStarships] = useState([])
   const [faction, setFaction] = useState('Rebel')
   const [name, setName] = useState('')
   const dispatch = useDispatch()
   const { t, i18n } = useTranslation()
+
+  useEffect(() => {
+    console.log(rebelList)
+    console.log(empireList)
+    setRebelStarships([rebelList[5], rebelList[7], rebelList[16]])
+    setEmpireStarships([empireList[4], empireList[5], empireList[11]])
+  }, [rebelList, empireList])
   return (
     <DivForm>
       <PlayerTitle>{t('TitleFormPlayer')}</PlayerTitle>

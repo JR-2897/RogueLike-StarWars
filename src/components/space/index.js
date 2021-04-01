@@ -9,10 +9,14 @@ import CenterBlockSpace from '../centerBlockSpace'
 import ProfileComponent from '../profileComponent'
 import PlanetComponent from '../planetComponent'
 import r from '../../utils/random'
+import { verifEndGame } from '../../utils/funcScreens'
+import { useHistory } from 'react-router'
 
 const Space = ({ planetsList }) => {
   const profileState = useSelector(state => state.profile.profile)
   const [fightAnimation, setFightAnimation] = useState('initial')
+  const history = useHistory()
+  const [hasLost, setHasLost] = useState(false)
 
   const [planet, setPlanet] = useState({
     name: 'Terre',
@@ -22,10 +26,14 @@ const Space = ({ planetsList }) => {
   })
   const [isEnemy, setIsEnemy] = useState(false)
   useEffect(() => {
-    let currentPlanet = planetsList[r(planetsList.length - 1)]
-    setPlanet(currentPlanet)
-    setIsEnemy(currentPlanet.faction !== profileState.faction)
-  }, [])
+    const currentPlanet = planetsList[r(planetsList.length - 1)]
+    console.log('currentPlanet', currentPlanet)
+    if (currentPlanet) {
+      setPlanet(currentPlanet)
+      setIsEnemy(currentPlanet.faction !== profileState.faction)
+      verifEndGame(profileState?.visitedPlanets, history, hasLost)
+    }
+  }, [profileState.visitedPlanets])
   return (
     <SpaceDiv>
       <ProfileComponent
@@ -37,6 +45,8 @@ const Space = ({ planetsList }) => {
         visitedPlanets={profileState.visitedPlanets}
         fightAnimation={fightAnimation}
         setFightAnimation={setFightAnimation}
+        profile={profileState}
+        setHasLost={setHasLost}
         currentPlanet={planet}
       ></CenterBlockSpace>
       <PlanetComponent planet={planet}></PlanetComponent>

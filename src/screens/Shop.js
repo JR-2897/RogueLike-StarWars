@@ -1,24 +1,25 @@
 import React, { useEffect } from 'react'
-import Player from '../components/player'
-import { accessAuthorize } from '../utils/funcAuthorize'
 import PropTypes from 'prop-types'
+import { accessAuthorize } from '../utils/funcAuthorize'
 import { useSelector } from 'react-redux'
+import ShopComponent from '../components/shopComponent'
 
-const Profile = ({ history }) => {
+const Shop = ({ history }) => {
   const rebelList = useSelector(state => state.starshipList.list.RebelList)
   const empireList = useSelector(state => state.starshipList.list.EmpireList)
   useEffect(() => {
-    accessAuthorize(history, 1)
+    accessAuthorize(history, 4)
   }, [])
   return (
-    <div>
-      <p>Profile</p>
-      <Player rebelList={rebelList} empireList={empireList}></Player>
-    </div>
+    <ShopComponent
+      rebelList={rebelList}
+      empireList={empireList}
+    ></ShopComponent>
   )
 }
-Profile.propTypes = {
+
+Shop.propTypes = {
   history: PropTypes.func
 }
 
-export default Profile
+export default Shop

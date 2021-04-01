@@ -1,19 +1,13 @@
-importScripts('https://www.gstatic.com/firebasejs/3.5.0/firebase-app.js')
-importScripts('https://www.gstatic.com/firebasejs/3.5.0/firebase-messaging.js')
-
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker
-    .register('../firebase-messaging-sw.js')
-    .then(function (registration) {
-      console.log('Registration successful, scope is:', registration.scope)
-    })
-    .catch(function (err) {
-      console.log('Service worker registration failed, error:', err)
-    })
-}
+importScripts('https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js')
+importScripts('https://www.gstatic.com/firebasejs/8.3.1/firebase-messaging.js')
 
 firebase.initializeApp({
-  messagingSenderId: '640406967095'
+  apiKey: 'AIzaSyAjbd6AQtuYb_poMXfBvwS69LevR7YT9JE',
+  authDomain: 'roguelike-starwars.firebaseapp.com',
+  projectId: 'roguelike-starwars',
+  storageBucket: 'roguelike-starwars.appspot.com',
+  messagingSenderId: '640406967095',
+  appId: '1:640406967095:web:126f275256bbff326480b2'
 })
 
 const initMessaging = firebase.messaging()
