@@ -15,9 +15,10 @@ import { useHistory } from 'react-router-dom/cjs/react-router-dom.min'
 
 const Player = ({ rebelList, empireList }) => {
   const history = useHistory()
+  const { t, i18n } = useTranslation()
   const [errorMessage, setErrorMessage] = useState('')
   const newProfile = useSelector(state => state.profile.profile)
-  const returnMenuButton = 'Retourner au Menu'
+  const returnMenuButton = t('ReturnMenuButton')
   const [starshipName, setStarshipName] = useState('')
   const [starship, setStarship] = useState({
     name: '',
@@ -30,11 +31,8 @@ const Player = ({ rebelList, empireList }) => {
   const [faction, setFaction] = useState('Rebel')
   const [name, setName] = useState('')
   const dispatch = useDispatch()
-  const { t, i18n } = useTranslation()
 
   useEffect(() => {
-    console.log(rebelList)
-    console.log(empireList)
     setRebelStarships([rebelList[5], rebelList[7], rebelList[16]])
     setEmpireStarships([empireList[4], empireList[5], empireList[11]])
   }, [rebelList, empireList])

@@ -25,6 +25,11 @@
     "ChoiceFactions": "Please choose a faction",
     "ReturnMenuButton": "Return to menu",
     "ShowLeaderBoardButton" :"Go to leaderboard",
-    "StartButton": "Start game"
+    "StartButton": "Start game",
+    "DayButton": "day",
+    "NightButton": "night",
+    "counterHDRemaining": "Hyper drive restant",
+    "Faction": "Faction",
+    "ScoreboardTitle": "Scoreboard"
   }
 }

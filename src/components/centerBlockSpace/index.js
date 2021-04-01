@@ -10,6 +10,7 @@ import {
   useHyperDriveActionButton
 } from '../../utils/funcRouteButton'
 import { useDispatch } from 'react-redux'
+import { useTranslation } from 'react-i18next'
 
 const CenterBlockSpace = ({
   isEnemy,
@@ -19,12 +20,13 @@ const CenterBlockSpace = ({
   profile,
   currentPlanet
 }) => {
-  const nbPlanetsVisited = 'Nombre de planète visitée'
-  const fightButton = 'Combattre'
-  const skipButton = 'Passer'
-  const useHyperDriveButton = 'Hyper drive'
-  const shopStarshipButton = 'Magasin'
-  const restockButton = 'Se répprovisionner'
+  const { t, i18n } = useTranslation()
+  const nbPlanetsVisited = t('NbPlanetsVisited')
+  const fightButton = t('FightButton')
+  const skipButton = t('SkipButton')
+  const useHyperDriveButton = t('UseHyperDriveButton')
+  const shopStarshipButton = t('StarshipShopButton')
+  const restockButton = t('RestockButton')
   const dispatch = useDispatch()
   const animationTimeout = useRef(null)
   const refActive = useRef(null)

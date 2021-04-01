@@ -7,11 +7,13 @@ import {
   shopStarshipActionButton
 } from '../../utils/funcRouteButton'
 import { useDispatch } from 'react-redux'
+import { useTranslation } from 'react-i18next'
 
 const RestockComponent = props => {
+  const { t, i18n } = useTranslation()
   const dispatch = useDispatch()
-  const skipButton = 'Passer'
-  const shopStarshipButton = 'Magasin'
+  const skipButton = t('SkipButton')
+  const shopStarshipButton = t('StarshipShopButton')
   return (
     <RestockComponentDiv>
       <ListDiv>

@@ -3,13 +3,15 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
 import { variantFightAnimation } from '../../utils/funcAnimation'
+import { useTranslation } from 'react-i18next'
 
 const ProfileComponent = ({ profileState, fightAnimation }) => {
-  const admiral = 'Amiral'
-  const nameStarship = 'Nom de vaisseau'
-  const model = 'Modèle'
-  const crew = 'Equipage'
-  const counterHDRemaining = 'Hyper drive restant'
+  const { t, i18n } = useTranslation()
+  const admiral = t('Admiral')
+  const nameStarship = t('StarshipName')
+  const model = t('Model')
+  const crew = t('Crew')
+  const counterHDRemaining = t('counterHDRemaining')
   return (
     <ProfileDiv>
       Partie Vaisseau
