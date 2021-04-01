@@ -19,6 +19,7 @@ const CenterBlockSpace = ({
   const animationTimeout = useRef(null)
   const refActive = useRef(null)
   const [active, setActive] = useState(false)
+  const [message, setMessage] = useState('')
   useEffect(() => {
     if (active) {
       animationTimeout.current = setTimeout(() => {
@@ -27,6 +28,8 @@ const CenterBlockSpace = ({
         )
       }, 550)
       clearTimeout(animationTimeout)
+    } else {
+      setFightAnimation('initial')
     }
   }, [active, fightAnimation])
   return (
@@ -45,6 +48,7 @@ const CenterBlockSpace = ({
             onClickButton={actionButton}
             textButton={useHyperDriveButton}
           ></ButtonComponent>
+          <StyledSpan>{message}</StyledSpan>
         </ButtonDiv>
       ) : (
         <ButtonDiv>
@@ -62,7 +66,6 @@ const CenterBlockSpace = ({
           ></ButtonComponent>
         </ButtonDiv>
       )}
-      <button>Test</button>
     </CenterDiv>
   )
 }
@@ -91,6 +94,11 @@ const StyledButton = styled.button`
   border-radius: 10px;
   color: ${props => props.theme.text};
   background-color: ${props => props.theme.background};
+`
+
+const StyledSpan = styled.span`
+  margin: 2px 0px;
+  color: red;
 `
 CenterBlockSpace.propTypes = {
   isEnemy: PropTypes.bool,

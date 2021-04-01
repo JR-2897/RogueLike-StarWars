@@ -58,3 +58,8 @@ export const submitProfileForm = (
   }
   initGame(dispatch, history, profile)
 }
+
+export const verifEndGame = (visitedPlanets, history, hasLost) => {
+  console.log(visitedPlanets)
+  if (visitedPlanets >= 10 || hasLost) history.push('/gameover')
+}
