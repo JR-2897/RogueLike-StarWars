@@ -3,12 +3,16 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import ButtonComponent from '../buttonComponent'
 import { launchFightAnimation } from '../../utils/funcAnimation'
+import { fight } from '../../utils/funcFight'
+import { useDispatch, useSelector } from 'react-redux'
+import { updateCrew } from '../../actions/profile'
 
 const CenterBlockSpace = ({
   isEnemy,
   visitedPlanets,
   fightAnimation,
-  setFightAnimation
+  setFightAnimation,
+  currentPlanet
 }) => {
   const nbPlanetsVisited = 'Nombre de planète visitée'
   const fightButton = 'Combattre'
@@ -19,6 +23,7 @@ const CenterBlockSpace = ({
   const animationTimeout = useRef(null)
   const refActive = useRef(null)
   const [active, setActive] = useState(false)
+  const dispatch = useDispatch()
   useEffect(() => {
     if (active) {
       animationTimeout.current = setTimeout(() => {
@@ -37,6 +42,19 @@ const CenterBlockSpace = ({
           <StyledButton
             onClick={() => {
               launchFightAnimation(refActive, setActive)
+              dispatch(
+                updateCrew(
+                  fight(
+                    useSelector(state => state.profile.profile.crewNb),
+                    currentPlanet.garrison
+                  )
+                )
+              )
+              if (useSelector(state => state.profile.profile.crewNb) === 0) {
+                setHasLost(false)
+              } else {
+                visitedPlanets += 1
+              }
             }}
           >
             {fightButton}
@@ -96,7 +114,8 @@ CenterBlockSpace.propTypes = {
   isEnemy: PropTypes.bool,
   visitedPlanets: PropTypes.number,
   fightAnimation: PropTypes.string,
-  setFightAnimation: PropTypes.func
+  setFightAnimation: PropTypes.func,
+  currentPlanet: PropTypes.object
 }
 
 export default CenterBlockSpace

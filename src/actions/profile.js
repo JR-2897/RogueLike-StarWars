@@ -1,6 +1,7 @@
 export const UPDATE_PROFILE = 'UPDATE_PROFILE'
 export const RESET_PROFILE = 'RESET_PROFILE'
 export const INC_PLANETS = 'INC_PLANETS'
+export const UPDATE_CREW = 'UPDATE_CREW'
 
 export const updateProfile = newProfile => ({
   type: UPDATE_PROFILE,
@@ -13,4 +14,9 @@ export const resetProfile = () => ({
 
 export const incPlanets = () => ({
   type: INC_PLANETS
+})
+
+export const updateCrew = crewNb => ({
+  type: UPDATE_CREW,
+  payload: crewNb
 })

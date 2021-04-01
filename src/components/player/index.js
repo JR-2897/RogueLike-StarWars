@@ -19,12 +19,6 @@ const Player = ({ rebelList, empireList }) => {
   const newProfile = useSelector(state => state.profile.profile)
   const returnMenuButton = 'Retourner au Menu'
   const [starshipName, setStarshipName] = useState('')
-  const [starship, setStarship] = useState({
-    name: '',
-    model: '',
-    img: '',
-    maxCapacity: 0
-  })
   const rebelStarships = [rebelList[5], rebelList[7], rebelList[16]]
   const empireStarships = [empireList[4], empireList[5], empireList[11]]
   const [faction, setFaction] = useState('Rebel')

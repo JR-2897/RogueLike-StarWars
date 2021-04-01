@@ -1,4 +1,9 @@
-import { RESET_PROFILE, UPDATE_PROFILE, INC_PLANETS } from '../actions/profile'
+import {
+  RESET_PROFILE,
+  UPDATE_PROFILE,
+  INC_PLANETS,
+  UPDATE_CREW
+} from '../actions/profile'
 
 const initialState = {
   profile: {
@@ -27,6 +32,13 @@ export default (state = initialState, action) => {
         profile: {
           ...state.profile,
           visitedPlanets: state.profile.visitedPlanets + 1
+        }
+      }
+    case UPDATE_CREW:
+      return {
+        profile: {
+          ...state.profile,
+          crewNb: action.payload
         }
       }
     default:
