@@ -5,14 +5,15 @@ import ButtonComponent from '../buttonComponent'
 import { launchFightAnimation } from '../../utils/funcAnimation'
 import { fight } from '../../utils/funcFight'
 import { useDispatch, useSelector } from 'react-redux'
-import { updateCrew } from '../../actions/profile'
+import { updateCrew, incPlanets } from '../../actions/profile'
 
 const CenterBlockSpace = ({
   isEnemy,
   visitedPlanets,
   fightAnimation,
   setFightAnimation,
-  currentPlanet
+  currentPlanet,
+  setHasLost
 }) => {
   const nbPlanetsVisited = 'Nombre de planète visitée'
   const fightButton = 'Combattre'
@@ -24,6 +25,7 @@ const CenterBlockSpace = ({
   const refActive = useRef(null)
   const [active, setActive] = useState(false)
   const dispatch = useDispatch()
+  const [message, setMessage] = useState('')
   useEffect(() => {
     if (active) {
       animationTimeout.current = setTimeout(() => {
@@ -32,6 +34,8 @@ const CenterBlockSpace = ({
         )
       }, 550)
       clearTimeout(animationTimeout)
+    } else {
+      setFightAnimation('initial')
     }
   }, [active, fightAnimation])
   return (
@@ -42,19 +46,7 @@ const CenterBlockSpace = ({
           <StyledButton
             onClick={() => {
               launchFightAnimation(refActive, setActive)
-              dispatch(
-                updateCrew(
-                  fight(
-                    useSelector(state => state.profile.profile.crewNb),
-                    currentPlanet.garrison
-                  )
-                )
-              )
-              if (useSelector(state => state.profile.profile.crewNb) === 0) {
-                setHasLost(false)
-              } else {
-                visitedPlanets += 1
-              }
+              // fight(profile, currentPlanet, dispatch, setHasLost)
             }}
           >
             {fightButton}
@@ -63,6 +55,7 @@ const CenterBlockSpace = ({
             onClickButton={actionButton}
             textButton={useHyperDriveButton}
           ></ButtonComponent>
+          <StyledSpan>{message}</StyledSpan>
         </ButtonDiv>
       ) : (
         <ButtonDiv>
@@ -80,7 +73,6 @@ const CenterBlockSpace = ({
           ></ButtonComponent>
         </ButtonDiv>
       )}
-      <button>Test</button>
     </CenterDiv>
   )
 }
@@ -110,12 +102,18 @@ const StyledButton = styled.button`
   color: ${props => props.theme.text};
   background-color: ${props => props.theme.background};
 `
+
+const StyledSpan = styled.span`
+  margin: 2px 0px;
+  color: red;
+`
 CenterBlockSpace.propTypes = {
   isEnemy: PropTypes.bool,
   visitedPlanets: PropTypes.number,
   fightAnimation: PropTypes.string,
   setFightAnimation: PropTypes.func,
-  currentPlanet: PropTypes.object
+  currentPlanet: PropTypes.object,
+  setHasLost: PropTypes.func
 }
 
 export default CenterBlockSpace
