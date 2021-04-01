@@ -9,6 +9,7 @@ const ProfileComponent = ({ profileState, fightAnimation }) => {
   const nameStarship = 'Nom de vaisseau'
   const model = 'Modèle'
   const crew = 'Equipage'
+  const counterHDRemaining = 'Hyper drive restant'
   return (
     <ProfileDiv>
       Partie Vaisseau
@@ -27,6 +28,7 @@ const ProfileComponent = ({ profileState, fightAnimation }) => {
         <StyledSpan>{`${model} : ${profileState.starship?.model}`}</StyledSpan>
         <StyledSpan>{`Credit : ${profileState.credit}`}</StyledSpan>
         <StyledSpan>{`${crew} : ${profileState.crew} / ${profileState.starship?.maxCapacity}`}</StyledSpan>
+        <StyledSpan>{`${counterHDRemaining} : ${profileState.counterHD}`}</StyledSpan>
       </DetailComponentDiv>
     </ProfileDiv>
   )

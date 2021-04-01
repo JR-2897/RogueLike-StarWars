@@ -21,7 +21,11 @@ export const skipPlanetActionButton = (history, dispatch) => {
 
 export const useHyperDriveActionButton = (dispatch, profile, setMessage) => {
   if (profile.counterHD > 0) {
-    const tmp = { ...profile, counterHD: profile.counterHD - 1 }
+    const tmp = {
+      ...profile,
+      counterHD: profile.counterHD - 1,
+      visitedPlanets: profile.visitedPlanets + 1
+    }
     dispatch(updateProfile(tmp))
   } else {
     setMessage("Don't have Hyper Drive")
