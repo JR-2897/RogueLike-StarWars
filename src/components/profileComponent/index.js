@@ -20,6 +20,7 @@ const ProfileComponent = ({ profileState, fightAnimation }) => {
         src={profileState.starship?.img}
         variants={variantFightAnimation}
         animate={fightAnimation}
+        alt={profileState.starship?.name}
       />
       <DetailComponentDiv>
         <StyledSpan>{`${nameStarship} : ${profileState.starship?.name}`}</StyledSpan>

@@ -4,21 +4,24 @@ import {
 } from '../actions/starshipList'
 
 const initialState = {
-  RebelList: [],
-  EmpireList: []
+  list: { RebelList: [], EmpireList: [] }
 }
 
 export default (state = initialState, action) => {
   switch (action.type) {
     case UPDATE_REBELSTARSHIPLIST:
       return {
-        RebelList: [...state.RebelList, action.payload],
-        EmpireList: [...state.EmpireList]
+        list: {
+          RebelList: [...state.list.RebelList, action.payload],
+          EmpireList: [...state.list.EmpireList]
+        }
       }
     case UPDATE_EMPIRESTARSHIPLIST:
       return {
-        RebelList: [...state.RebelList],
-        EmpireList: [...state.EmpireList, action.payload]
+        list: {
+          RebelList: [...state.list.RebelList],
+          EmpireList: [...state.list.EmpireList, action.payload]
+        }
       }
     default:
       return state

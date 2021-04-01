@@ -12,14 +12,14 @@ const SelectionStarshipRadioButtonRow = ({
       <RadioButtonInput
         type='radio'
         name='vaisseaux'
-        value={valueStarship.name}
+        value={valueStarship?.name}
         onChange={res => setStarship(res.target.value)}
-        checked={starship === valueStarship.name}
+        checked={starship === valueStarship?.name}
       ></RadioButtonInput>
       {
         //<RadioButtonImg src={starship.img}></RadioButtonImg>
       }
-      <span>{valueStarship.name}</span>
+      <span>{valueStarship?.name}</span>
     </DivRadioButton>
   )
 }

@@ -5,8 +5,8 @@ import PropTypes from 'prop-types'
 import { useSelector } from 'react-redux'
 
 const Profile = ({ history }) => {
-  const rebelList = useSelector(state => state.starshipList.RebelList)
-  const empireList = useSelector(state => state.starshipList.EmpireList)
+  const rebelList = useSelector(state => state.starshipList.list.RebelList)
+  const empireList = useSelector(state => state.starshipList.list.EmpireList)
   useEffect(() => {
     accessAuthorize(history, 1)
   }, [])
