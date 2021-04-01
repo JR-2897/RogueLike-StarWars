@@ -12,7 +12,7 @@ const GameOver = ({ history }) => {
 }
 
 GameOver.propTypes = {
-  history: PropTypes.func
+  history: PropTypes.object
 }
 
 export default GameOver
