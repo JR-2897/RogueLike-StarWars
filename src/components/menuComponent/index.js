@@ -7,10 +7,12 @@ import {
   goLeaderBoardButton,
   startActionButton
 } from '../../utils/funcRouteButton'
+import { useTranslation } from 'react-i18next'
 
 const MenuComponent = props => {
-  const startButton = 'Commencer'
-  const showLeaderBoardButton = 'Voir le tableau des scores'
+  const { t, i18n } = useTranslation()
+  const startButton = t('StartButton')
+  const showLeaderBoardButton = t('ShowLeaderBoardButton')
   const dispatch = useDispatch()
   return (
     <MenuDiv>

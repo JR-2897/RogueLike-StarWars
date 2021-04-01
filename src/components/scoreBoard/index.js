@@ -6,19 +6,21 @@ import { useState } from 'react'
 import { getScoreList } from '../../utils/funcScore'
 import ButtonComponent from '../buttonComponent'
 import { goMenuButton } from '../../utils/funcRouteButton'
+import { useTranslation } from 'react-i18next'
 
 const ScoreBoard = props => {
   const [scoreList, setScoreList] = useState([])
-  const admiral = 'Amiral'
-  const nameStarship = 'Nom de vaisseau'
-  const nbPlanetsVisited = 'Nombre de planète visitée'
-  const returnMenuButton = 'Retourner au Menu'
+  const { t, i18n } = useTranslation()
+  const admiral = t('Admiral')
+  const nameStarship = t('StarshipName')
+  const nbPlanetsVisited = t('NbPlanetsVisited')
+  const returnMenuButton = t('ReturnMenuButton')
   useEffect(() => {
     getScoreList(setScoreList)
   }, [])
   return (
     <ScoreBoardDiv>
-      <StyledScoreTitle>Tableau des scores</StyledScoreTitle>
+      <StyledScoreTitle>{t('ScoreBoardTitle')}</StyledScoreTitle>
       <table>
         <thead>
           <StyledScoreHeaderTr>
