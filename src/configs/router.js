@@ -9,8 +9,6 @@ import { useSelector } from 'react-redux'
 import { ThemeProvider } from 'styled-components'
 import { createGlobalStyle } from 'styled-components'
 
-import firebase from './firebase'
-
 import Header from '../components/header'
 import Home from '../screens/Home'
 import Profile from '../screens/Profile'
@@ -20,12 +18,6 @@ import Leaderboards from '../screens/Leaderboards'
 
 const Routes = () => {
   const currentStyle = useSelector(state => state.theme.style)
-  useEffect(() => {
-    const msg = firebase.messaging()
-    msg.requestPermission().then(() => {
-      return msg.getToken()
-    })
-  })
 
   return (
     <ThemeProvider theme={currentStyle}>
