@@ -14,8 +14,9 @@ export const startActionButton = (dispatch, history) => {
   initProfile(dispatch, history)
 }
 
-export const pastPlanetActionButton = dispatch => {
+export const skipPlanetActionButton = (history, dispatch) => {
   dispatch(incPlanets())
+  history.push('/spacetravel')
 }
 
 export const useHyperDriveActionButton = (dispatch, profile, setMessage) => {
@@ -25,4 +26,12 @@ export const useHyperDriveActionButton = (dispatch, profile, setMessage) => {
   } else {
     setMessage("Don't have Hyper Drive")
   }
+}
+
+export const shopStarshipActionButton = history => {
+  history.push('/shop')
+}
+
+export const restockActionButton = history => {
+  history.push('/restock')
 }

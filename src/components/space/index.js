@@ -45,6 +45,8 @@ const Space = ({ planetsList }) => {
         visitedPlanets={profileState.visitedPlanets}
         fightAnimation={fightAnimation}
         setFightAnimation={setFightAnimation}
+        profile={profileState}
+        currentPlanet={planet}
       ></CenterBlockSpace>
       <PlanetComponent planet={planet}></PlanetComponent>
     </SpaceDiv>
