@@ -49,6 +49,7 @@ const CenterBlockSpace = ({
         <ButtonDiv>
           <StyledButton
             onClick={() => {
+              setMessage('')
               launchFightAnimation(refActive, setActive)
             }}
           >
@@ -61,7 +62,6 @@ const CenterBlockSpace = ({
           >
             {useHyperDriveButton}
           </StyledButton>
-          <StyledSpan>{message}</StyledSpan>
         </ButtonDiv>
       ) : (
         <ButtonDiv>
@@ -80,6 +80,7 @@ const CenterBlockSpace = ({
           ></ButtonComponent>
         </ButtonDiv>
       )}
+      <StyledSpan>{message}</StyledSpan>
     </CenterDiv>
   )
 }
