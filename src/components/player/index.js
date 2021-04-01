@@ -18,6 +18,7 @@ const Player = ({ rebelList, empireList }) => {
   const [errorMessage, setErrorMessage] = useState('')
   const newProfile = useSelector(state => state.profile.profile)
   const returnMenuButton = 'Retourner au Menu'
+  const [starshipName, setStarshipName] = useState('')
   const [starship, setStarship] = useState({
     name: '',
     model: '',
