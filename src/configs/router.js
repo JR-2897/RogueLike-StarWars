@@ -17,6 +17,8 @@ import Profile from '../screens/Profile'
 import SpaceTravel from '../screens/SpaceTravel'
 import GameEnd from '../screens/GameOver'
 import Leaderboards from '../screens/Leaderboards'
+import Shop from '../screens/Shop'
+import Restock from '../screens/Restock'
 
 const Routes = () => {
   const currentStyle = useSelector(state => state.theme.style)
@@ -38,6 +40,8 @@ const Routes = () => {
           <Route exact path='/spacetravel' component={SpaceTravel} />
           <Route exact path='/gameover' component={GameEnd} />
           <Route exact path='/leaderboards' component={Leaderboards} />
+          <Route exact path='/shop' component={Shop} />
+          <Route exact path='/restock' component={Restock} />
 
           <Redirect to='/' />
         </Switch>
