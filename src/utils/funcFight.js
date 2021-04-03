@@ -45,9 +45,10 @@ export const calcfight = (playerTroops, enemyTroops) => {
 }
 
 export const fight = (profile, currentPlanet, dispatch, setHasLost) => {
+  console.log('profil dans fight', profile)
   var enemy = currentPlanet.garrison
-  var initTroops = profile.profile.crewNb
-  var remainingTroops = fight(initTroops, enemy)
+  var initTroops = profile.crew
+  var remainingTroops = calcfight(initTroops, enemy)
   if (remainingTroops === 0) {
     setHasLost(true)
   } else {

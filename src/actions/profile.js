@@ -16,7 +16,7 @@ export const incPlanets = () => ({
   type: INC_PLANETS
 })
 
-export const updateCrew = crewNb => ({
+export const updateCrew = crew => ({
   type: UPDATE_CREW,
-  payload: crewNb
+  payload: crew
 })

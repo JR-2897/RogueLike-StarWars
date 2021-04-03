@@ -27,28 +27,27 @@ const Space = ({ planetsList }) => {
   const [isEnemy, setIsEnemy] = useState(false)
   useEffect(() => {
     const currentPlanet = planetsList[r(planetsList.length - 1)]
-    console.log('currentPlanet', currentPlanet)
     if (currentPlanet) {
       setPlanet(currentPlanet)
       setIsEnemy(currentPlanet.faction !== profileState.faction)
       verifEndGame(profileState?.visitedPlanets, history, hasLost)
     }
-  }, [profileState.visitedPlanets])
+  }, [profileState.visitedPlanets, hasLost])
   return (
     <SpaceDiv>
       <ProfileComponent
         profileState={profileState}
         fightAnimation={fightAnimation}
-      ></ProfileComponent>
+      />
       <CenterBlockSpace
         isEnemy={isEnemy}
         visitedPlanets={profileState.visitedPlanets}
         fightAnimation={fightAnimation}
         setFightAnimation={setFightAnimation}
-        profile={profileState}
         setHasLost={setHasLost}
         currentPlanet={planet}
-      ></CenterBlockSpace>
+        profileState={profileState}
+      />
       <PlanetComponent planet={planet}></PlanetComponent>
     </SpaceDiv>
   )
