@@ -18,7 +18,7 @@ const Profile = ({ history }) => {
   )
 }
 Profile.propTypes = {
-  history: PropTypes.func
+  history: PropTypes.object
 }
 
 export default Profile

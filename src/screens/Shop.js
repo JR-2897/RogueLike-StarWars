@@ -20,7 +20,7 @@ const Shop = ({ history }) => {
 }
 
 Shop.propTypes = {
-  history: PropTypes.func
+  history: PropTypes.object
 }
 
 export default Shop

@@ -10,7 +10,7 @@ import ProfileComponent from '../profileComponent'
 import PlanetComponent from '../planetComponent'
 import r from '../../utils/random'
 import { verifEndGame } from '../../utils/funcScreens'
-import { useHistory } from 'react-router'
+import { useHistory } from 'react-router-dom'
 
 const Space = ({ planetsList }) => {
   const profileState = useSelector(state => state.profile.profile)

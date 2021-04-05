@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { buyItem } from '../../utils/funcScreens'
 import { useDispatch } from 'react-redux'
-import { useHistory } from 'react-router-dom/cjs/react-router-dom.min'
+import { useHistory } from 'react-router-dom'
 
 const ItemComponent = ({
   title,

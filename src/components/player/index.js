@@ -9,7 +9,7 @@ import SelectionFactionRadioButton from '../selectionFactionRadioButton'
 import ButtonComponent from '../buttonComponent'
 import { goMenuButton } from '../../utils/funcRouteButton'
 import { submitProfileForm } from '../../utils/funcScreens'
-import { useHistory } from 'react-router-dom/cjs/react-router-dom.min'
+import { useHistory } from 'react-router-dom'
 
 const Player = ({ rebelList, empireList }) => {
   const history = useHistory()

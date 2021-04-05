@@ -181,7 +181,7 @@ const ButtonStyled = styled.button`
 `
 
 RestockComponent.propTypes = {
-  history: PropTypes.func
+  history: PropTypes.object
 }
 
 export default RestockComponent
