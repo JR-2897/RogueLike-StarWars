@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { useTranslation } from 'react-i18next'
 
 const PlanetComponent = ({ planet }) => {
-  const { t, i18n } = useTranslation()
+  const { t } = useTranslation()
   const namePlanet = t('NamePlanet')
   const classPlanet = t('ClassPlanet')
   const garrison = t('Garrison')

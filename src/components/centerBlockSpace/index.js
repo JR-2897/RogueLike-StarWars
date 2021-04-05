@@ -17,10 +17,9 @@ const CenterBlockSpace = ({
   visitedPlanets,
   fightAnimation,
   setFightAnimation,
-  profile,
-  currentPlanet
+  profile
 }) => {
-  const { t, i18n } = useTranslation()
+  const { t } = useTranslation()
   const nbPlanetsVisited = t('NbPlanetsVisited')
   const fightButton = t('FightButton')
   const skipButton = t('SkipButton')

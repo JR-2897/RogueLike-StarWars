@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { useEffect } from 'react'
 import styled from 'styled-components'
 import { useState } from 'react'
@@ -8,9 +7,9 @@ import ButtonComponent from '../buttonComponent'
 import { goMenuButton } from '../../utils/funcRouteButton'
 import { useTranslation } from 'react-i18next'
 
-const ScoreBoard = props => {
+const ScoreBoard = () => {
   const [scoreList, setScoreList] = useState([])
-  const { t, i18n } = useTranslation()
+  const { t } = useTranslation()
   const admiral = t('Admiral')
   const nameStarship = t('StarshipName')
   const nbPlanetsVisited = t('NbPlanetsVisited')

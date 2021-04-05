@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useTranslation } from 'react-i18next'
 
 const ShopComponent = ({ history, rebelList, empireList }) => {
-  const { t, i18n } = useTranslation()
+  const { t } = useTranslation()
   const dispatch = useDispatch()
   const skipButton = t('SkipButton')
   const restockButton = t('RestockButton')

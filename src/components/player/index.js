@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { useTranslation } from 'react-i18next'
 import PropTypes from 'prop-types'
-
-import { updateProfile } from '../../actions/profile'
 
 import SelectionStarshipRadioButton from '../selectionStarshipRadioButton'
 import SelectionFactionRadioButton from '../selectionFactionRadioButton'
@@ -15,17 +13,10 @@ import { useHistory } from 'react-router-dom/cjs/react-router-dom.min'
 
 const Player = ({ rebelList, empireList }) => {
   const history = useHistory()
-  const { t, i18n } = useTranslation()
+  const { t } = useTranslation()
   const [errorMessage, setErrorMessage] = useState('')
-  const newProfile = useSelector(state => state.profile.profile)
   const returnMenuButton = t('ReturnMenuButton')
   const [starshipName, setStarshipName] = useState('')
-  const [starship, setStarship] = useState({
-    name: '',
-    model: '',
-    img: '',
-    maxCapacity: 0
-  })
   const [rebelStarships, setRebelStarships] = useState([])
   const [empireStarships, setEmpireStarships] = useState([])
   const [faction, setFaction] = useState('Rebel')

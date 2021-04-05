@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import ButtonComponent from '../buttonComponent'
 import { useDispatch } from 'react-redux'
@@ -9,8 +8,8 @@ import {
 } from '../../utils/funcRouteButton'
 import { useTranslation } from 'react-i18next'
 
-const MenuComponent = props => {
-  const { t, i18n } = useTranslation()
+const MenuComponent = () => {
+  const { t } = useTranslation()
   const startButton = t('StartButton')
   const showLeaderBoardButton = t('ShowLeaderBoardButton')
   const dispatch = useDispatch()
