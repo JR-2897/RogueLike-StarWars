@@ -1,5 +1,6 @@
 import { incPlanets, updateProfile } from '../actions/profile'
-import { initProfile } from './funcScreens'
+import EndGameComponent from '../components/endGameComponent'
+import { initProfile, verifEndGame } from './funcScreens'
 
 export const goMenuButton = history => {
   history.push('/')
@@ -16,7 +17,24 @@ export const startActionButton = (dispatch, history) => {
 
 export const skipPlanetActionButton = (history, dispatch) => {
   dispatch(incPlanets())
+  localStorage.setItem('step', 2)
   history.push('/spacetravel')
+}
+
+export const skipPlanetActionInShopButton = (
+  history,
+  dispatch,
+  visitedPlanets
+) => {
+  console.log(visitedPlanets)
+  dispatch(incPlanets())
+  if (visitedPlanets >= 9) {
+    localStorage.setItem('step', 3)
+    history.push('/gameover')
+  } else {
+    localStorage.setItem('step', 2)
+    history.push('/spacetravel')
+  }
 }
 
 export const useHyperDriveActionButton = (dispatch, profile, setMessage) => {
@@ -33,9 +51,11 @@ export const useHyperDriveActionButton = (dispatch, profile, setMessage) => {
 }
 
 export const shopStarshipActionButton = history => {
+  localStorage.setItem('step', 4)
   history.push('/shop')
 }
 
 export const restockActionButton = history => {
+  localStorage.setItem('step', 4)
   history.push('/restock')
 }
