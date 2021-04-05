@@ -1,9 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import ButtonComponent from '../buttonComponent'
 import {
-  skipPlanetActionButton,
   shopStarshipActionButton,
   skipPlanetActionInShopButton
 } from '../../utils/funcRouteButton'
@@ -13,7 +11,7 @@ import ItemComponent from '../ItemComponent'
 import { CrewType, HdType } from '../../utils/funcType'
 
 const RestockComponent = ({ history }) => {
-  const { t, i18n } = useTranslation()
+  const { t } = useTranslation()
   const dispatch = useDispatch()
   const profile = useSelector(state => state.profile.profile)
   const skipButton = t('SkipButton')
@@ -182,6 +180,8 @@ const ButtonStyled = styled.button`
   background-color: ${props => props.theme.background};
 `
 
-RestockComponent.propTypes = {}
+RestockComponent.propTypes = {
+  history: PropTypes.func
+}
 
 export default RestockComponent

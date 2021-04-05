@@ -1,6 +1,5 @@
 import { incPlanets, updateProfile } from '../actions/profile'
-import EndGameComponent from '../components/endGameComponent'
-import { initProfile, verifEndGame } from './funcScreens'
+import { initProfile } from './funcScreens'
 
 export const goMenuButton = history => {
   history.push('/')

@@ -6,7 +6,7 @@ import { variantFightAnimation } from '../../utils/funcAnimation'
 import { useTranslation } from 'react-i18next'
 
 const ProfileComponent = ({ profileState, fightAnimation }) => {
-  const { t, i18n } = useTranslation()
+  const { t } = useTranslation()
   const admiral = t('Admiral')
   const nameStarship = t('StarshipName')
   const model = t('Model')
