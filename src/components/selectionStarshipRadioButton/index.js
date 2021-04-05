@@ -29,7 +29,9 @@ const SelectionStarshipRadioButton = ({ setStarship, starship, starships }) => {
   )
 }
 
-const DivRadioButtons = styled.div``
+const DivRadioButtons = styled.div`
+  margin: 15px 0px;
+`
 const LabelsStarships = styled.label``
 
 SelectionStarshipRadioButton.propTypes = {

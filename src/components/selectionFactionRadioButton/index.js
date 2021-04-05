@@ -25,7 +25,9 @@ const SelectionFactionRadioButton = ({ setFaction, faction }) => {
   )
 }
 
-const DivRadioButtons = styled.div``
+const DivRadioButtons = styled.div`
+  margin: 15px 0px;
+`
 const LabelFactions = styled.label``
 
 export default SelectionFactionRadioButton

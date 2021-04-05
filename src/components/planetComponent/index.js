@@ -12,7 +12,6 @@ const PlanetComponent = ({ planet }) => {
 
   return (
     <PlanetDiv>
-      Partie Planète
       <BlockImage src={planet?.img} />
       <DetailComponentDiv>
         <StyledSpan>{`${namePlanet} : ${planet?.name}`}</StyledSpan>
