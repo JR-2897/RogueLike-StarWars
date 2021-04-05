@@ -48,7 +48,7 @@ const Space = ({ planetsList }) => {
         profile={profileState}
         setHasLost={setHasLost}
         currentPlanet={planet}
-      ></CenterBlockSpace>
+      />
       <PlanetComponent planet={planet}></PlanetComponent>
     </SpaceDiv>
   )
