@@ -14,7 +14,6 @@ const ProfileComponent = ({ profileState, fightAnimation }) => {
   const counterHDRemaining = t('counterHDRemaining')
   return (
     <ProfileDiv>
-      Partie Vaisseau
       <DetailComponentDiv>
         <StyledSpan>{`${admiral} : ${profileState.name} `}</StyledSpan>
         <StyledSpan>{`Faction : ${profileState.faction}`}</StyledSpan>

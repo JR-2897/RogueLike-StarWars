@@ -12,7 +12,6 @@ const Profile = ({ history }) => {
   }, [])
   return (
     <div>
-      <p>Profile</p>
       <Player rebelList={rebelList} empireList={empireList}></Player>
     </div>
   )

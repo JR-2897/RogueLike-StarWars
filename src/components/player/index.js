@@ -69,8 +69,8 @@ const Player = ({ rebelList, empireList }) => {
             starships={empireStarships}
           ></SelectionStarshipRadioButton>
         )}
-        <SubmitInput type='submit' value={t('ValidForm')}></SubmitInput>
         <AlertMessage>{errorMessage}</AlertMessage>
+        <SubmitInput type='submit' value={t('ValidForm')}></SubmitInput>
       </Form>
       <ButtonDiv>
         <ButtonComponent
@@ -82,12 +82,31 @@ const Player = ({ rebelList, empireList }) => {
   )
 }
 
-const DivForm = styled.div``
-const PlayerTitle = styled.span``
+const DivForm = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 5px;
+`
+const PlayerTitle = styled.span`
+  margin: 10px 0px;
+  font-weight: bold;
+`
 const Form = styled.form``
-const InputPlayer = styled.input``
-const SubmitInput = styled.input``
-const AlertMessage = styled.span`
+const InputPlayer = styled.input`
+  border-radius: 15px;
+  padding: 2px 5px;
+  margin: 5px 0px;
+`
+const SubmitInput = styled.input`
+  margin-top: 5px;
+  border: ${props => props.theme.border} solid 1px;
+  padding: 4px 6px;
+  border-radius: 10px;
+  color: ${props => props.theme.text};
+  background-color: ${props => props.theme.background};
+`
+const AlertMessage = styled.p`
   color: red;
 `
 
