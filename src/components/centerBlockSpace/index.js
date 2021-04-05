@@ -33,9 +33,6 @@ const CenterBlockSpace = ({
   const [active, setActive] = useState(false)
   const [message, setMessage] = useState('')
 
-  console.log('profil dans centerBlockSpace (hors bouton)', profileState)
-  console.log('currentPlanet (CBS)', currentPlanet)
-
   useEffect(() => {
     if (active) {
       animationTimeout.current = setTimeout(() => {
