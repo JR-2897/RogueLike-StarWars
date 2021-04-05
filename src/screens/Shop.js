@@ -14,6 +14,7 @@ const Shop = ({ history }) => {
     <ShopComponent
       rebelList={rebelList}
       empireList={empireList}
+      history={history}
     ></ShopComponent>
   )
 }
