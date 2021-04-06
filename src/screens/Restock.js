@@ -7,9 +7,9 @@ const Restock = ({ history }) => {
   useEffect(() => {
     accessAuthorize(history, 4)
   }, [])
-  return <RestockComponent></RestockComponent>
+  return <RestockComponent history={history}></RestockComponent>
 }
 
-Restock.propTypes = { history: PropTypes.func }
+Restock.propTypes = { history: PropTypes.object }
 
 export default Restock

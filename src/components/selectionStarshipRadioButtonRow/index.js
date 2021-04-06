@@ -16,9 +16,6 @@ const SelectionStarshipRadioButtonRow = ({
         onChange={res => setStarship(res.target.value)}
         checked={starship === valueStarship?.name}
       ></RadioButtonInput>
-      {
-        //<RadioButtonImg src={starship.img}></RadioButtonImg>
-      }
       <span>{valueStarship?.name}</span>
     </DivRadioButton>
   )
@@ -26,7 +23,6 @@ const SelectionStarshipRadioButtonRow = ({
 
 const DivRadioButton = styled.div``
 const RadioButtonInput = styled.input``
-const RadioButtonImg = styled.img``
 
 SelectionStarshipRadioButtonRow.propTypes = {
   setStarship: PropTypes.func,

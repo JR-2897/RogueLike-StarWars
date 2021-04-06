@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { useHistory } from 'react-router'
+import { useHistory } from 'react-router-dom'
 
 const ButtonComponent = ({ onClickButton, textButton, dispatch }) => {
   const history = useHistory()

@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
 const SelectionFactionRadioButtonRow = ({
   setFaction,
@@ -23,5 +24,12 @@ const SelectionFactionRadioButtonRow = ({
 const DivRadioButton = styled.div``
 const RadioButtonInput = styled.input``
 const RadioButtonText = styled.span``
+
+SelectionFactionRadioButtonRow.propTypes = {
+  setFaction: PropTypes.func,
+  valueFaction: PropTypes.string,
+  faction: PropTypes.string,
+  labelFaction: PropTypes.string
+}
 
 export default SelectionFactionRadioButtonRow
