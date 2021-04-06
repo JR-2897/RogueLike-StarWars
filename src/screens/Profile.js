@@ -12,13 +12,12 @@ const Profile = ({ history }) => {
   }, [])
   return (
     <div>
-      <p>Profile</p>
       <Player rebelList={rebelList} empireList={empireList}></Player>
     </div>
   )
 }
 Profile.propTypes = {
-  history: PropTypes.func
+  history: PropTypes.object
 }
 
 export default Profile

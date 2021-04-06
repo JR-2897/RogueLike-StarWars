@@ -4,14 +4,14 @@ import styled from 'styled-components'
 import ButtonComponent from '../buttonComponent'
 import { launchFightAnimation } from '../../utils/funcAnimation'
 import { fight } from '../../utils/funcFight'
-import { useDispatch, useSelector } from 'react-redux'
-import { updateCrew, incPlanets } from '../../actions/profile'
+import { useDispatch } from 'react-redux'
 import {
   restockActionButton,
   shopStarshipActionButton,
   skipPlanetActionButton,
   useHyperDriveActionButton
 } from '../../utils/funcRouteButton'
+import { useTranslation } from 'react-i18next'
 
 const CenterBlockSpace = ({
   isEnemy,
@@ -22,12 +22,13 @@ const CenterBlockSpace = ({
   setHasLost,
   profile
 }) => {
-  const nbPlanetsVisited = 'Nombre de planète visitée'
-  const fightButton = 'Combattre'
-  const skipButton = 'Passer'
-  const useHyperDriveButton = 'Hyper drive'
-  const shopStarshipButton = 'Magasin'
-  const restockButton = 'Se répprovisionner'
+  const { t } = useTranslation()
+  const nbPlanetsVisited = t('NbPlanetsVisited')
+  const fightButton = t('FightButton')
+  const skipButton = t('SkipButton')
+  const useHyperDriveButton = t('UseHyperDriveButton')
+  const shopStarshipButton = t('StarshipShopButton')
+  const restockButton = t('RestockButton')
   const dispatch = useDispatch()
   const animationTimeout = useRef(null)
   const refActive = useRef(null)
@@ -52,8 +53,9 @@ const CenterBlockSpace = ({
         <ButtonDiv>
           <StyledButton
             onClick={() => {
+              setMessage('')
               launchFightAnimation(refActive, setActive)
-              // fight(profile, currentPlanet, dispatch, setHasLost)
+              fight(profile, currentPlanet, dispatch, setHasLost)
             }}
           >
             {fightButton}
@@ -65,7 +67,6 @@ const CenterBlockSpace = ({
           >
             {useHyperDriveButton}
           </StyledButton>
-          <StyledSpan>{message}</StyledSpan>
         </ButtonDiv>
       ) : (
         <ButtonDiv>
@@ -84,6 +85,7 @@ const CenterBlockSpace = ({
           ></ButtonComponent>
         </ButtonDiv>
       )}
+      <StyledSpan>{message}</StyledSpan>
     </CenterDiv>
   )
 }

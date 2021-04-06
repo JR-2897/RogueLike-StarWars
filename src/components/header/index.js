@@ -26,10 +26,10 @@ const Header = () => {
           <ChangeDayNightMode
             onClick={() => dispatch(updateTheme(light_theme))}
           >
-            jour
+            {t('DayButton')}
           </ChangeDayNightMode>
           <ChangeDayNightMode onClick={() => dispatch(updateTheme(dark_theme))}>
-            nuit
+            {t('NightButton')}
           </ChangeDayNightMode>
         </DivChangeDayNightMode>
       </NavBar>

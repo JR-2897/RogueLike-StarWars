@@ -25,6 +25,11 @@
     "ChoiceFactions": "Veuillez choisir une faction",
     "ReturnMenuButton": "Retourner au menu",
     "ShowLeaderBoardButton" :"Aller au tableau des scores",
-    "StartButton": "Commencer"
+    "StartButton": "Commencer",
+    "DayButton": "jour",
+    "NightButton": "nuit",
+    "counterHDRemaining": "Hyper drive restant",
+    "Faction": "Faction",
+    "ScoreBoardTitle": "Tableau de score"
   }
 }

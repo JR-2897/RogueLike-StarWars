@@ -14,12 +14,13 @@ const Shop = ({ history }) => {
     <ShopComponent
       rebelList={rebelList}
       empireList={empireList}
+      history={history}
     ></ShopComponent>
   )
 }
 
 Shop.propTypes = {
-  history: PropTypes.func
+  history: PropTypes.object
 }
 
 export default Shop

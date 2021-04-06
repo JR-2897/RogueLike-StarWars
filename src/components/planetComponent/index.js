@@ -1,17 +1,17 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { useTranslation } from 'react-i18next'
 
 const PlanetComponent = ({ planet }) => {
-  const namePlanet = 'Nom'
-  const classPlanet = 'Classe'
-  const garrison = 'Garnison'
-  const faction = 'Faction'
+  const { t } = useTranslation()
+  const namePlanet = t('NamePlanet')
+  const classPlanet = t('ClassPlanet')
+  const garrison = t('Garrison')
+  const faction = t('Faction')
 
-  // console.log(`planet`, planet)
   return (
     <PlanetDiv>
-      Partie Planète
       <BlockImage src={planet?.img} />
       <DetailComponentDiv>
         <StyledSpan>{`${namePlanet} : ${planet?.name}`}</StyledSpan>

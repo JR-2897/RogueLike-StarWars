@@ -28,10 +28,10 @@ export const addNewScore = (admiral, nameStarship, credit, visitedPlanets) => {
     }
     let playerScore = {
       id: uuidv4(),
-      admiradl: admiral,
+      admiral: admiral,
       nameStarship: nameStarship,
       credit: credit,
-      visitedPlanet: visitedPlanets
+      visitedPlanets: visitedPlanets
     }
     tmp.push(playerScore)
     let tab = _.sortBy(tmp, [

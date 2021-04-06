@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import { useSelector } from 'react-redux'
 
 // Ecran principal avec les fonctionnalités d'une partie.
-const SpaceTravel = history => {
+const SpaceTravel = ({ history }) => {
   const planetsList = useSelector(state => state.planetList.list)
   useEffect(() => {
     accessAuthorize(history, 2)
@@ -17,7 +17,7 @@ const SpaceTravel = history => {
   )
 }
 SpaceTravel.propTypes = {
-  history: PropTypes.func
+  history: PropTypes.object
 }
 
 export default SpaceTravel

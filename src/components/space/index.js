@@ -10,7 +10,7 @@ import ProfileComponent from '../profileComponent'
 import PlanetComponent from '../planetComponent'
 import r from '../../utils/random'
 import { verifEndGame } from '../../utils/funcScreens'
-import { useHistory } from 'react-router'
+import { useHistory } from 'react-router-dom'
 
 const Space = ({ planetsList }) => {
   const profileState = useSelector(state => state.profile.profile)
@@ -19,10 +19,12 @@ const Space = ({ planetsList }) => {
   const [hasLost, setHasLost] = useState(false)
 
   const [planet, setPlanet] = useState({
-    name: 'Terre',
+    name: 'Aleen Minor',
+    img:
+      'https://static.wikia.nocookie.net/starwars/images/f/f6/Aleen_NEGAS.jpg',
     faction: 'Rebel',
-    garrison: 10000,
-    class: 3
+    garrison: 100,
+    class: 1
   })
   const [isEnemy, setIsEnemy] = useState(false)
   useEffect(() => {

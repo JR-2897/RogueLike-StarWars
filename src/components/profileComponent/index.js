@@ -3,21 +3,23 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
 import { variantFightAnimation } from '../../utils/funcAnimation'
+import { useTranslation } from 'react-i18next'
 
 const ProfileComponent = ({ profileState, fightAnimation }) => {
-  const admiral = 'Amiral'
-  const nameStarship = 'Nom de vaisseau'
-  const model = 'Modèle'
-  const crew = 'Equipage'
+  const { t } = useTranslation()
+  const admiral = t('Admiral')
+  const nameStarship = t('StarshipName')
+  const model = t('Model')
+  const crew = t('Crew')
+  const counterHDRemaining = t('counterHDRemaining')
   return (
     <ProfileDiv>
-      Partie Vaisseau
       <DetailComponentDiv>
         <StyledSpan>{`${admiral} : ${profileState.name} `}</StyledSpan>
         <StyledSpan>{`Faction : ${profileState.faction}`}</StyledSpan>
       </DetailComponentDiv>
       <BlockImage
-        src={profileState.starship?.img}
+        src={profileState.starship?.image}
         variants={variantFightAnimation}
         animate={fightAnimation}
         alt={profileState.starship?.name}
@@ -27,6 +29,7 @@ const ProfileComponent = ({ profileState, fightAnimation }) => {
         <StyledSpan>{`${model} : ${profileState.starship?.model}`}</StyledSpan>
         <StyledSpan>{`Credit : ${profileState.credit}`}</StyledSpan>
         <StyledSpan>{`${crew} : ${profileState.crew} / ${profileState.starship?.maxCapacity}`}</StyledSpan>
+        <StyledSpan>{`${counterHDRemaining} : ${profileState.counterHD}`}</StyledSpan>
       </DetailComponentDiv>
     </ProfileDiv>
   )
