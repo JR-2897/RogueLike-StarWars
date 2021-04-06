@@ -13,6 +13,7 @@ const EndGameComponent = () => {
   const nameStarship = 'Nom de vaisseau'
   const crew = 'Equipage'
   const nbPlanetsVisited = 'Nombre de planète visitée'
+  const resultTitle = 'Résultat de la partie'
   useEffect(() => {
     addNewScore(
       profileState.name,
@@ -23,6 +24,7 @@ const EndGameComponent = () => {
   }, [])
   return (
     <EndGameDiv>
+      <TitleStyle>{resultTitle}</TitleStyle>
       <ProfilDiv>
         <DetailProfileDiv>
           <StyledSpan>{`${admiral} : ${profileState.name} `}</StyledSpan>
@@ -76,6 +78,11 @@ const StyledSpan = styled.span`
 const BlockImage = styled.img`
   width: 300px;
   padding: 5px;
+`
+
+const TitleStyle = styled.span`
+  font-weight: bold;
+  margin: 15px 0px;
 `
 
 const ButtonDiv = styled.div`
