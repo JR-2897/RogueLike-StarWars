@@ -12,7 +12,7 @@ const initialState = {
     credit: 0,
     counterHD: 0,
     faction: '',
-    crewNb: 0,
+    crew: 0,
     visitedPlanets: 0
   }
 }
@@ -20,7 +20,6 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case UPDATE_PROFILE:
-      //return { profile: {...state.profile, action.payload} }
       return {
         ...state,
         profile: action.payload
@@ -38,7 +37,7 @@ export default (state = initialState, action) => {
       return {
         profile: {
           ...state.profile,
-          crewNb: action.payload
+          crew: action.payload
         }
       }
     default:

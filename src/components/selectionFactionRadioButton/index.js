@@ -15,13 +15,13 @@ const SelectionFactionRadioButton = ({ setFaction, faction }) => {
         valueFaction={'Rebel'}
         faction={faction}
         labelFaction={t('RebelAlliance')}
-      ></SelectionFactionRadioButtonRow>
+      />
       <SelectionFactionRadioButtonRow
         setFaction={setFaction}
         valueFaction={'Empire'}
         faction={faction}
         labelFaction={t('GalacticEmpire')}
-      ></SelectionFactionRadioButtonRow>
+      />
     </DivRadioButtons>
   )
 }
