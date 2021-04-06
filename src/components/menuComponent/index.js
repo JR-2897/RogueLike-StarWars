@@ -15,22 +15,23 @@ const MenuComponent = () => {
   const dispatch = useDispatch()
   return (
     <MenuDiv>
-      <ButtonComponent
-        onClickButton={(history, dispatch) => {
-          startActionButton(dispatch, history)
-        }}
-        dispatch={dispatch}
-        textButton={startButton}
-      />
-      <ButtonComponent
-        onClickButton={goLeaderBoardButton}
-        textButton={showLeaderBoardButton}
-      />
+      <ImageBlock src='https://images5.alphacoders.com/926/thumb-1920-926391.png' />
+      <DivStyled>
+        <ButtonComponent
+          onClickButton={(history, dispatch) => {
+            startActionButton(dispatch, history)
+          }}
+          dispatch={dispatch}
+          textButton={startButton}
+        />
+        <ButtonComponent
+          onClickButton={goLeaderBoardButton}
+          textButton={showLeaderBoardButton}
+        />
+      </DivStyled>
     </MenuDiv>
   )
 }
-
-MenuComponent.propTypes = {}
 
 const MenuDiv = styled.div`
   display: flex;
@@ -38,5 +39,10 @@ const MenuDiv = styled.div`
   align-items: center;
   margin: 20px 5px;
 `
-
+const ImageBlock = styled.img`
+  width: 50%;
+`
+const DivStyled = styled.div`
+  margin: 10px 0px;
+`
 export default MenuComponent
