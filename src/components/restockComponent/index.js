@@ -19,39 +19,43 @@ const RestockComponent = ({ history }) => {
   return (
     <RestockComponentDiv>
       <ProfileDiv>
-        <TitleList>{`Vos informations`}</TitleList>
+        <TitleList>{t('Result')}</TitleList>
         <div>
           <InfoSpan>{`Credit : ${profile.credit}`}</InfoSpan>
-          <InfoSpan>{`Nb d'équipage : ${profile.crew}`}</InfoSpan>
-          <InfoSpan>{`Nb d'hyper drive : ${profile.counterHD}`}</InfoSpan>
+          <InfoSpan>
+            {t('Crew')} : {`${profile.crew}`}
+          </InfoSpan>
+          <InfoSpan>
+            {t('HyperdriveNb')} : {`${profile.counterHD}`}
+          </InfoSpan>
         </div>
       </ProfileDiv>
       <ListDiv>
         <CategoryDiv>
-          <TitleList>{`Achat d'unité Hyper drive`}</TitleList>
+          <TitleList>{t('BuyHyperdrive')}</TitleList>
           <ItemComponent
-            title={`Unité d'hyper drive`}
+            title={t('OneHyperdrive')}
             cost={500}
             quantity={1}
             type={HdType}
             profile={profile}
           ></ItemComponent>
           <ItemComponent
-            title={`Petite caisse d'hyper drive`}
+            title={t('SmallHyperdriveBox')}
             cost={1750}
             quantity={3}
             type={HdType}
             profile={profile}
           ></ItemComponent>
           <ItemComponent
-            title={`Moyenne caisse d'hyper drive`}
+            title={t('AverageHyperdriveBox')}
             cost={3000}
             quantity={5}
             type={HdType}
             profile={profile}
           ></ItemComponent>
           <ItemComponent
-            title={`Grande caisse d'hyper drive`}
+            title={t('LargeHyperdriveBox')}
             cost={7500}
             quantity={10}
             type={HdType}
@@ -59,65 +63,65 @@ const RestockComponent = ({ history }) => {
           ></ItemComponent>
         </CategoryDiv>
         <CategoryDiv>
-          <TitleList>{`Achat de membre d'équipage`}</TitleList>
+          <TitleList>{t('BuyCrew')}</TitleList>
           <ItemComponent
-            title={`Peloton d'équipage`}
+            title={t('Platoon')}
             cost={100}
             quantity={25}
             type={CrewType}
             profile={profile}
           ></ItemComponent>
           <ItemComponent
-            title={`Escadron d'équipage`}
+            title={t('Squadron')}
             cost={500}
             quantity={100}
             type={CrewType}
             profile={profile}
           ></ItemComponent>
           <ItemComponent
-            title={`Bataillon d'équipage`}
+            title={t('Battalion')}
             cost={6000}
             quantity={1000}
             type={CrewType}
             profile={profile}
           ></ItemComponent>
           <ItemComponent
-            title={`Régiment d'équipage`}
+            title={t('Regiment')}
             cost={20000}
             quantity={3000}
             type={CrewType}
             profile={profile}
           ></ItemComponent>
           <ItemComponent
-            title={`Brigade d'équipage`}
+            title={t('Brigade')}
             cost={75000}
             quantity={10000}
             type={CrewType}
             profile={profile}
           ></ItemComponent>
           <ItemComponent
-            title={`Division d'équipage`}
+            title={t('Division')}
             cost={250000}
             quantity={25000}
             type={CrewType}
             profile={profile}
           ></ItemComponent>
           <ItemComponent
-            title={`Corp armée d'équipage`}
+            title={t('Corps')}
             cost={500000}
             quantity={50000}
             type={CrewType}
             profile={profile}
           ></ItemComponent>
           <ItemComponent
-            title={`Armée d'équipage`}
+            title={t('Army')}
             cost={2000000}
             quantity={200000}
             type={CrewType}
             profile={profile}
           ></ItemComponent>
           <ItemComponent
-            title={`GATE (Great Army of Total Extermination) d'équipage`}
+            title={t('ArmyGroup')}
             cost={9999999}
             quantity={1000000}
             type={CrewType}

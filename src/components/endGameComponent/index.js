@@ -4,16 +4,18 @@ import ButtonComponent from '../buttonComponent'
 import { useSelector } from 'react-redux'
 import { addNewScore } from '../../utils/funcScore'
 import { goLeaderBoardButton, goMenuButton } from '../../utils/funcRouteButton'
+import { useTranslation } from 'react-i18next'
 
 const EndGameComponent = () => {
   const profileState = useSelector(state => state.profile.profile)
-  const returnMenuButton = 'Retourner au Menu'
-  const showLeaderBoardButton = 'Voir le tableau des scores'
-  const admiral = 'Amiral'
-  const nameStarship = 'Nom de vaisseau'
-  const crew = 'Equipage'
-  const nbPlanetsVisited = 'Nombre de planète visitée'
-  const resultTitle = 'Résultat de la partie'
+  const { t } = useTranslation()
+  const returnMenuButton = t('ReturnMenuButton')
+  const showLeaderBoardButton = t('ShowLeaderBoardButton')
+  const admiral = t('Admiral')
+  const nameStarship = t('NameStarship')
+  const crew = t('Crew')
+  const nbPlanetsVisited = t('NbPlanetsVisited')
+  const resultTitle = t('Result')
   useEffect(() => {
     addNewScore(
       profileState.name,
