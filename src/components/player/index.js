@@ -1,40 +1,29 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { useTranslation } from 'react-i18next'
 import PropTypes from 'prop-types'
-
-import { updateProfile } from '../../actions/profile'
 
 import SelectionStarshipRadioButton from '../selectionStarshipRadioButton'
 import SelectionFactionRadioButton from '../selectionFactionRadioButton'
 import ButtonComponent from '../buttonComponent'
 import { goMenuButton } from '../../utils/funcRouteButton'
 import { submitProfileForm } from '../../utils/funcScreens'
-import { useHistory } from 'react-router-dom/cjs/react-router-dom.min'
+import { useHistory } from 'react-router-dom'
 
 const Player = ({ rebelList, empireList }) => {
   const history = useHistory()
+  const { t } = useTranslation()
   const [errorMessage, setErrorMessage] = useState('')
-  const newProfile = useSelector(state => state.profile.profile)
-  const returnMenuButton = 'Retourner au Menu'
+  const returnMenuButton = t('ReturnMenuButton')
   const [starshipName, setStarshipName] = useState('')
-  const [starship, setStarship] = useState({
-    name: '',
-    model: '',
-    img: '',
-    maxCapacity: 0
-  })
   const [rebelStarships, setRebelStarships] = useState([])
   const [empireStarships, setEmpireStarships] = useState([])
   const [faction, setFaction] = useState('Rebel')
   const [name, setName] = useState('')
   const dispatch = useDispatch()
-  const { t, i18n } = useTranslation()
 
   useEffect(() => {
-    // console.log(rebelList)
-    // console.log(empireList)
     setRebelStarships([rebelList[5], rebelList[7], rebelList[16]])
     setEmpireStarships([empireList[4], empireList[5], empireList[11]])
   }, [rebelList, empireList])
@@ -80,8 +69,8 @@ const Player = ({ rebelList, empireList }) => {
             starships={empireStarships}
           />
         )}
-        <SubmitInput type='submit' value={t('ValidForm')} />
         <AlertMessage>{errorMessage}</AlertMessage>
+        <SubmitInput type='submit' value={t('ValidForm')}></SubmitInput>
       </Form>
       <ButtonDiv>
         <ButtonComponent
@@ -93,12 +82,31 @@ const Player = ({ rebelList, empireList }) => {
   )
 }
 
-const DivForm = styled.div``
-const PlayerTitle = styled.span``
+const DivForm = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 5px;
+`
+const PlayerTitle = styled.span`
+  margin: 10px 0px;
+  font-weight: bold;
+`
 const Form = styled.form``
-const InputPlayer = styled.input``
-const SubmitInput = styled.input``
-const AlertMessage = styled.span`
+const InputPlayer = styled.input`
+  border-radius: 15px;
+  padding: 2px 5px;
+  margin: 5px 0px;
+`
+const SubmitInput = styled.input`
+  margin-top: 5px;
+  border: ${props => props.theme.border} solid 1px;
+  padding: 4px 6px;
+  border-radius: 10px;
+  color: ${props => props.theme.text};
+  background-color: ${props => props.theme.background};
+`
+const AlertMessage = styled.p`
   color: red;
 `
 

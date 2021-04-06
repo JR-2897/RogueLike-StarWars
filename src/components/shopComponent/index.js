@@ -1,32 +1,43 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import ButtonComponent from '../buttonComponent'
 import {
-  skipPlanetActionButton,
+  skipPlanetActionInShopButton,
   restockActionButton
 } from '../../utils/funcRouteButton'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { useTranslation } from 'react-i18next'
 
-const ShopComponent = ({ rebelList, empireList }) => {
+const ShopComponent = ({ history, rebelList, empireList }) => {
+  const { t } = useTranslation()
   const dispatch = useDispatch()
-  const skipButton = 'Passer'
-  const restockButton = 'Se répprovisionner'
+  const skipButton = t('SkipButton')
+  const restockButton = t('RestockButton')
+  const profile = useSelector(state => state.profile.profile)
   return (
     <ShopComponentDiv>
       <ListDiv>
         <ul></ul>
       </ListDiv>
       <ButtonDiv>
-        <ButtonComponent
-          onClickButton={restockActionButton}
-          textButton={restockButton}
-        ></ButtonComponent>
-        <ButtonComponent
-          onClickButton={skipPlanetActionButton}
-          dispatch={dispatch}
-          textButton={skipButton}
-        ></ButtonComponent>
+        <ButtonStyled
+          onClick={() => {
+            restockActionButton(history)
+          }}
+        >
+          {restockButton}
+        </ButtonStyled>
+        <ButtonStyled
+          onClick={() => {
+            skipPlanetActionInShopButton(
+              history,
+              dispatch,
+              profile.visitedPlanets
+            )
+          }}
+        >
+          {skipButton}
+        </ButtonStyled>
       </ButtonDiv>
     </ShopComponentDiv>
   )
@@ -36,9 +47,19 @@ const ShopComponentDiv = styled.div``
 const ButtonDiv = styled.div``
 const ListDiv = styled.div``
 
+const ButtonStyled = styled.button`
+  margin: 5px 10px;
+  border: ${props => props.theme.border} solid 1px;
+  padding: 4px 6px;
+  border-radius: 10px;
+  color: ${props => props.theme.text};
+  background-color: ${props => props.theme.background};
+`
+
 ShopComponent.propTypes = {
   rebelList: PropTypes.array,
-  empireList: PropTypes.array
+  empireList: PropTypes.array,
+  history: PropTypes.object
 }
 
 export default ShopComponent

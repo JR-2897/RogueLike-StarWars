@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 import SelectionStarshipRadioButtonRow from '../selectionStarshipRadioButtonRow'
 
 const SelectionStarshipRadioButton = ({ setStarship, starship, starships }) => {
-  const { t, i18n } = useTranslation()
+  const { t } = useTranslation()
   return (
     <DivRadioButtons>
       <LabelsStarships>{t('Starships')}</LabelsStarships>
@@ -29,7 +29,9 @@ const SelectionStarshipRadioButton = ({ setStarship, starship, starships }) => {
   )
 }
 
-const DivRadioButtons = styled.div``
+const DivRadioButtons = styled.div`
+  margin: 15px 0px;
+`
 const LabelsStarships = styled.label``
 
 SelectionStarshipRadioButton.propTypes = {

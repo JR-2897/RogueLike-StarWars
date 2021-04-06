@@ -32,7 +32,7 @@ const EndGameComponent = () => {
           <StyledSpan>{`${crew} : ${profileState.crew}`}</StyledSpan>
           <StyledSpan>{`${nbPlanetsVisited} : ${profileState.visitedPlanets}`}</StyledSpan>
         </DetailProfileDiv>
-        <BlockImage src={profileState.starship?.img} />
+        <BlockImage src={profileState.starship?.image} />
       </ProfilDiv>
       <ButtonDiv>
         <ButtonComponent

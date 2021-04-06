@@ -11,6 +11,7 @@ import {
   skipPlanetActionButton,
   useHyperDriveActionButton
 } from '../../utils/funcRouteButton'
+import { useTranslation } from 'react-i18next'
 
 const CenterBlockSpace = ({
   isEnemy,
@@ -21,12 +22,13 @@ const CenterBlockSpace = ({
   currentPlanet,
   profileState
 }) => {
-  const nbPlanetsVisited = 'Nombre de planète visitée'
-  const fightButton = 'Combattre'
-  const skipButton = 'Passer'
-  const useHyperDriveButton = 'Hyper drive'
-  const shopStarshipButton = 'Magasin'
-  const restockButton = 'Se répprovisionner'
+  const { t } = useTranslation()
+  const nbPlanetsVisited = t('NbPlanetsVisited')
+  const fightButton = t('FightButton')
+  const skipButton = t('SkipButton')
+  const useHyperDriveButton = t('UseHyperDriveButton')
+  const shopStarshipButton = t('StarshipShopButton')
+  const restockButton = t('RestockButton')
   const dispatch = useDispatch()
   const animationTimeout = useRef(null)
   const refActive = useRef(null)
@@ -53,6 +55,7 @@ const CenterBlockSpace = ({
         <ButtonDiv>
           <StyledButton
             onClick={() => {
+              setMessage('')
               launchFightAnimation(refActive, setActive)
               fight(profileState, currentPlanet, dispatch, setHasLost)
             }}
@@ -66,7 +69,6 @@ const CenterBlockSpace = ({
           >
             {useHyperDriveButton}
           </StyledButton>
-          <StyledSpan>{message}</StyledSpan>
         </ButtonDiv>
       ) : (
         <ButtonDiv>
@@ -85,6 +87,7 @@ const CenterBlockSpace = ({
           ></ButtonComponent>
         </ButtonDiv>
       )}
+      <StyledSpan>{message}</StyledSpan>
     </CenterDiv>
   )
 }
