@@ -1,4 +1,5 @@
 import { planets } from '../resources/data/dataPlanets'
+import r from './random'
 
 export const getIdList = () => {
   const idList = []
@@ -14,7 +15,6 @@ export const transformDataForPlanet = (id, data) => {
 
   const planetObject = {
     ...planet,
-    // class: getClass(data.population),
     class: getClass(data.population),
     garrison: data.population === 'unknown' ? 150 : getGarrison(data.population)
   }
@@ -51,4 +51,22 @@ const getClass = (pop, classe = 0) => {
     return classe + 1
   }
   return getClass(pop, classe + 1)
+}
+
+const chosePlanet = (list, profileState) => {
+  var p = list[r(list.length - 1)]
+  if (!p) {
+    return {
+      name: 'Aleen Minor',
+      img:
+        'https://static.wikia.nocookie.net/starwars/images/f/f6/Aleen_NEGAS.jpg',
+      faction: 'Rebel',
+      garrison: 100,
+      class: 1
+    }
+  } else if (p.class > Math.max(3 * profileState.visitedPlanets, 4)) {
+    list.splice(list.indexOf(p), 1)
+    // eslint-disable-next-line no-unused-vars
+    return chosePlanet(list)
+  } else return p
 }
