@@ -53,17 +53,18 @@ const getClass = (pop, classe = 0) => {
   return getClass(pop, classe + 1)
 }
 
+const defaultPlanet = {
+  name: 'Aleen Minor',
+  img: 'https://static.wikia.nocookie.net/starwars/images/f/f6/Aleen_NEGAS.jpg',
+  faction: 'Rebel',
+  garrison: 100,
+  class: 1
+}
+
 const chosePlanet = (list, profileState) => {
   var p = list[r(list.length - 1)]
   if (!p) {
-    return {
-      name: 'Aleen Minor',
-      img:
-        'https://static.wikia.nocookie.net/starwars/images/f/f6/Aleen_NEGAS.jpg',
-      faction: 'Rebel',
-      garrison: 100,
-      class: 1
-    }
+    return defaultPlanet
   } else if (p.class > Math.max(3 * profileState.visitedPlanets, 4)) {
     list.splice(list.indexOf(p), 1)
     // eslint-disable-next-line no-unused-vars

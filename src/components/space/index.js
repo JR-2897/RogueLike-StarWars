@@ -8,7 +8,7 @@ import CenterBlockSpace from '../centerBlockSpace'
 import ProfileComponent from '../profileComponent'
 import PlanetComponent from '../planetComponent'
 import { useHistory } from 'react-router-dom'
-import { chosePlanet } from '../../utils/funcPlanet'
+import { chosePlanet, defaultPlanet } from '../../utils/funcPlanet'
 import { verifEndGame } from '../../utils/funcScreens'
 
 const Space = ({ planetsList }) => {
@@ -17,14 +17,7 @@ const Space = ({ planetsList }) => {
   const history = useHistory()
   const [hasLost, setHasLost] = useState(false)
 
-  const [planet, setPlanet] = useState({
-    name: 'Aleen Minor',
-    img:
-      'https://static.wikia.nocookie.net/starwars/images/f/f6/Aleen_NEGAS.jpg',
-    faction: 'Rebel',
-    garrison: 100,
-    class: 1
-  })
+  const [planet, setPlanet] = useState(defaultPlanet)
   const [isEnemy, setIsEnemy] = useState(false)
   useEffect(() => {
     const currentPlanet = chosePlanet(planetsList)
