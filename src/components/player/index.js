@@ -51,23 +51,23 @@ const Player = ({ rebelList, empireList }) => {
           placeholder={t('PlaceholderName')}
           type='text'
           onChange={e => setName(e.target.value)}
-        ></InputPlayer>
+        />
         <SelectionFactionRadioButton
           setFaction={setFaction}
           faction={faction}
-        ></SelectionFactionRadioButton>
+        />
         {faction === 'Rebel' ? (
           <SelectionStarshipRadioButton
             setStarship={setStarshipName}
             starship={starshipName}
             starships={rebelStarships}
-          ></SelectionStarshipRadioButton>
+          />
         ) : (
           <SelectionStarshipRadioButton
             setStarship={setStarshipName}
             starship={starshipName}
             starships={empireStarships}
-          ></SelectionStarshipRadioButton>
+          />
         )}
         <AlertMessage>{errorMessage}</AlertMessage>
         <SubmitInput type='submit' value={t('ValidForm')}></SubmitInput>
@@ -76,7 +76,7 @@ const Player = ({ rebelList, empireList }) => {
         <ButtonComponent
           onClickButton={goMenuButton}
           textButton={returnMenuButton}
-        ></ButtonComponent>
+        />
       </ButtonDiv>
     </DivForm>
   )

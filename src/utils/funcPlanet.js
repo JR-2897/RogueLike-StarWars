@@ -14,25 +14,41 @@ export const transformDataForPlanet = (id, data) => {
 
   const planetObject = {
     ...planet,
+    // class: getClass(data.population),
     class: getClass(data.population),
-    garrison:
-      data.population === 'unknown'
-        ? 100
-        : data.population < 100
-        ? 100
-        : getGarrison(data.population)
+    garrison: data.population === 'unknown' ? 150 : getGarrison(data.population)
   }
   return planetObject
 }
 
-const getGarrison = pop => {
-  return pop * (100 - 5 * getClass(pop))
+const getGarrison = (pop, gar = 0, classe = 0) => {
+  var temp = Math.min(pop, Math.pow(7, classe + 1))
+
+  if (classe <= 1) {
+    if (pop < 150) {
+      return 150
+    }
+    temp = Math.min(pop, 200)
+  }
+
+  pop -= temp
+  gar += temp * Math.pow(0.7, classe)
+  if (pop === 0) {
+    return Math.ceil(gar)
+  }
+  return getGarrison(pop, gar, classe + 1)
 }
 
-export const getClass = nb => {
-  let i = 1
-  while (nb > Math.pow(10, i)) {
-    i++
+const getClass = (pop, classe = 0) => {
+  var temp = Math.min(pop, Math.pow(7, classe + 1))
+
+  if (classe <= 1) {
+    temp = Math.min(pop, 200)
   }
-  return i
+
+  pop -= temp
+  if (pop === 0) {
+    return classe + 1
+  }
+  return getClass(pop, classe + 1)
 }

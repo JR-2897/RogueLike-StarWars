@@ -18,9 +18,9 @@ const CenterBlockSpace = ({
   visitedPlanets,
   fightAnimation,
   setFightAnimation,
-  currentPlanet,
   setHasLost,
-  profile
+  currentPlanet,
+  profileState
 }) => {
   const { t } = useTranslation()
   const nbPlanetsVisited = t('NbPlanetsVisited')
@@ -34,6 +34,7 @@ const CenterBlockSpace = ({
   const refActive = useRef(null)
   const [active, setActive] = useState(false)
   const [message, setMessage] = useState('')
+
   useEffect(() => {
     if (active) {
       animationTimeout.current = setTimeout(() => {
@@ -46,6 +47,7 @@ const CenterBlockSpace = ({
       setFightAnimation('initial')
     }
   }, [active, fightAnimation])
+
   return (
     <CenterDiv>
       <BlockComponentsDiv>{`${nbPlanetsVisited} : ${visitedPlanets}`}</BlockComponentsDiv>
@@ -55,14 +57,14 @@ const CenterBlockSpace = ({
             onClick={() => {
               setMessage('')
               launchFightAnimation(refActive, setActive)
-              fight(profile, currentPlanet, dispatch, setHasLost)
+              fight(profileState, currentPlanet, dispatch, setHasLost)
             }}
           >
             {fightButton}
           </StyledButton>
           <StyledButton
             onClick={() =>
-              useHyperDriveActionButton(dispatch, profile, setMessage)
+              useHyperDriveActionButton(dispatch, profileState, setMessage)
             }
           >
             {useHyperDriveButton}
@@ -126,7 +128,7 @@ CenterBlockSpace.propTypes = {
   setFightAnimation: PropTypes.func,
   currentPlanet: PropTypes.object,
   setHasLost: PropTypes.func,
-  profile: PropTypes.object
+  profileState: PropTypes.object
 }
 
 export default CenterBlockSpace
