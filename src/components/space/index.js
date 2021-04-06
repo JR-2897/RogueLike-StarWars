@@ -20,7 +20,7 @@ const Space = ({ planetsList }) => {
   const [planet, setPlanet] = useState(defaultPlanet)
   const [isEnemy, setIsEnemy] = useState(false)
   useEffect(() => {
-    const currentPlanet = chosePlanet(planetsList)
+    const currentPlanet = chosePlanet(planetsList, profileState)
     if (currentPlanet) {
       setPlanet(currentPlanet)
       setIsEnemy(currentPlanet.faction !== profileState.faction)
@@ -42,7 +42,7 @@ const Space = ({ planetsList }) => {
         currentPlanet={planet}
         profileState={profileState}
       />
-      <PlanetComponent planet={planet}></PlanetComponent>
+      <PlanetComponent planet={planet} />
     </SpaceDiv>
   )
 }

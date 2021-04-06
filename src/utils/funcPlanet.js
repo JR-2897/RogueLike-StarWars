@@ -53,7 +53,7 @@ const getClass = (pop, classe = 0) => {
   return getClass(pop, classe + 1)
 }
 
-const defaultPlanet = {
+export const defaultPlanet = {
   name: 'Aleen Minor',
   img: 'https://static.wikia.nocookie.net/starwars/images/f/f6/Aleen_NEGAS.jpg',
   faction: 'Rebel',
@@ -61,7 +61,7 @@ const defaultPlanet = {
   class: 1
 }
 
-const chosePlanet = (list, profileState) => {
+export const chosePlanet = (list, profileState) => {
   var p = list[r(list.length - 1)]
   if (!p) {
     return defaultPlanet
