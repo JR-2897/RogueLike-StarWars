@@ -20,11 +20,11 @@ const MenuComponent = props => {
         }}
         dispatch={dispatch}
         textButton={startButton}
-      ></ButtonComponent>
+      />
       <ButtonComponent
         onClickButton={goLeaderBoardButton}
         textButton={showLeaderBoardButton}
-      ></ButtonComponent>
+      />
     </MenuDiv>
   )
 }

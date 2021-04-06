@@ -15,6 +15,6 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 const persistedReducer = persistReducer(persistConfig, reducers)
 export const store = createStore(
   persistedReducer,
-  composeEnhancers(applyMiddleware(thunk, logger))
+  composeEnhancers(applyMiddleware(thunk /* , logger */))
 )
 export let persistor = persistStore(store)

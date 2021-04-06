@@ -4,8 +4,7 @@ import styled from 'styled-components'
 import ButtonComponent from '../buttonComponent'
 import { launchFightAnimation } from '../../utils/funcAnimation'
 import { fight } from '../../utils/funcFight'
-import { useDispatch, useSelector } from 'react-redux'
-import { updateCrew, incPlanets } from '../../actions/profile'
+import { useDispatch } from 'react-redux'
 import {
   restockActionButton,
   shopStarshipActionButton,
@@ -18,9 +17,9 @@ const CenterBlockSpace = ({
   visitedPlanets,
   fightAnimation,
   setFightAnimation,
-  currentPlanet,
   setHasLost,
-  profile
+  currentPlanet,
+  profileState
 }) => {
   const nbPlanetsVisited = 'Nombre de planète visitée'
   const fightButton = 'Combattre'
@@ -33,6 +32,7 @@ const CenterBlockSpace = ({
   const refActive = useRef(null)
   const [active, setActive] = useState(false)
   const [message, setMessage] = useState('')
+
   useEffect(() => {
     if (active) {
       animationTimeout.current = setTimeout(() => {
@@ -45,6 +45,7 @@ const CenterBlockSpace = ({
       setFightAnimation('initial')
     }
   }, [active, fightAnimation])
+
   return (
     <CenterDiv>
       <BlockComponentsDiv>{`${nbPlanetsVisited} : ${visitedPlanets}`}</BlockComponentsDiv>
@@ -53,14 +54,14 @@ const CenterBlockSpace = ({
           <StyledButton
             onClick={() => {
               launchFightAnimation(refActive, setActive)
-              // fight(profile, currentPlanet, dispatch, setHasLost)
+              fight(profileState, currentPlanet, dispatch, setHasLost)
             }}
           >
             {fightButton}
           </StyledButton>
           <StyledButton
             onClick={() =>
-              useHyperDriveActionButton(dispatch, profile, setMessage)
+              useHyperDriveActionButton(dispatch, profileState, setMessage)
             }
           >
             {useHyperDriveButton}
@@ -124,7 +125,7 @@ CenterBlockSpace.propTypes = {
   setFightAnimation: PropTypes.func,
   currentPlanet: PropTypes.object,
   setHasLost: PropTypes.func,
-  profile: PropTypes.object
+  profileState: PropTypes.object
 }
 
 export default CenterBlockSpace

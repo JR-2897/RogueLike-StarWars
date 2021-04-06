@@ -21,12 +21,12 @@ const RestockComponent = props => {
         <ButtonComponent
           onClickButton={shopStarshipActionButton}
           textButton={shopStarshipButton}
-        ></ButtonComponent>
+        />
         <ButtonComponent
           onClickButton={skipPlanetActionButton}
           dispatch={dispatch}
           textButton={skipButton}
-        ></ButtonComponent>
+        />
       </ButtonDiv>
     </RestockComponentDiv>
   )

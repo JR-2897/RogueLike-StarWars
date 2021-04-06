@@ -42,7 +42,7 @@ const EndGameComponent = () => {
         <ButtonComponent
           onClickButton={goMenuButton}
           textButton={returnMenuButton}
-        ></ButtonComponent>
+        />
       </ButtonDiv>
     </EndGameDiv>
   )

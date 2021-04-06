@@ -1,3 +1,4 @@
+import { incPlanets, updateCrew } from '../actions/profile'
 import r from './random'
 
 const kill = (units, unitsToKill) => {
@@ -8,7 +9,7 @@ const kill = (units, unitsToKill) => {
   }
 }
 
-export const fight = (playerTroops, enemyTroops) => {
+export const calcfight = (playerTroops, enemyTroops) => {
   console.log(
     `Start : attacking troups : ${playerTroops}\tdefending troups : ${enemyTroops}`
   )
@@ -41,4 +42,17 @@ export const fight = (playerTroops, enemyTroops) => {
     console.log(`défaite`)
   }
   return playerTroops
+}
+
+export const fight = (profile, currentPlanet, dispatch, setHasLost) => {
+  console.log('profil dans fight', profile)
+  var enemy = currentPlanet.garrison
+  var initTroops = profile.crew
+  var remainingTroops = calcfight(initTroops, enemy)
+  if (remainingTroops === 0) {
+    setHasLost(true)
+  } else {
+    dispatch(incPlanets())
+  }
+  dispatch(updateCrew(remainingTroops))
 }
