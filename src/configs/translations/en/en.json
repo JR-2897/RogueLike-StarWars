@@ -30,6 +30,24 @@
     "NightButton": "night",
     "counterHDRemaining": "Hyper drive restant",
     "Faction": "Faction",
-    "ScoreboardTitle": "Scoreboard"
+    "ScoreboardTitle": "Scoreboard",
+    "Result": "Result",
+    "Infos": "Your information",
+    "HyperdriveNb": "Hyperdrive number",
+    "BuyHyperdrive": "Buy Hyperdrive",
+    "OneHyperdrive": "One Hyperdrive",
+    "SmallHyperdriveBox": "Small Hyperdrive box",
+    "AverageHyperdriveBox": "Average Hyperdrive box",
+    "LargeHyperdriveBox": "Large Hyperdrive box",
+    "BuyCrew": "Buy crew",
+    "Platoon": "Platoon",
+    "Squadron": "Squadron",
+    "Battalion": "Battalion",
+    "Regiment": "Regiment",
+    "Brigade": "Brigade",
+    "Division": "Division",
+    "Corps": "Corps",
+    "Army": "Field army",
+    "ArmyGroup": "Army group"
   }
 }

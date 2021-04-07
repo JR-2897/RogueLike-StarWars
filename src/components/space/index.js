@@ -19,6 +19,13 @@ const Space = ({ planetsList }) => {
 
   const [planet, setPlanet] = useState(defaultPlanet)
   const [isEnemy, setIsEnemy] = useState(false)
+  const chosePlanet = list => {
+    var p = list[r(list.length - 1)]
+    if (p.class > Math.max(3 * profileState.visitedPlanets, 4)) {
+      list.splice(list.indexOf(p), 1)
+      return chosePlanet(list)
+    } else return p
+  }
   useEffect(() => {
     const currentPlanet = chosePlanet(planetsList, profileState)
     if (currentPlanet) {

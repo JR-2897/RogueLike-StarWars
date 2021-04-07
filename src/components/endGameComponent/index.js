@@ -4,15 +4,18 @@ import ButtonComponent from '../buttonComponent'
 import { useSelector } from 'react-redux'
 import { addNewScore } from '../../utils/funcScore'
 import { goLeaderBoardButton, goMenuButton } from '../../utils/funcRouteButton'
+import { useTranslation } from 'react-i18next'
 
 const EndGameComponent = () => {
   const profileState = useSelector(state => state.profile.profile)
-  const returnMenuButton = 'Retourner au Menu'
-  const showLeaderBoardButton = 'Voir le tableau des scores'
-  const admiral = 'Amiral'
-  const nameStarship = 'Nom de vaisseau'
-  const crew = 'Equipage'
-  const nbPlanetsVisited = 'Nombre de planète visitée'
+  const { t } = useTranslation()
+  const returnMenuButton = t('ReturnMenuButton')
+  const showLeaderBoardButton = t('ShowLeaderBoardButton')
+  const admiral = t('Admiral')
+  const nameStarship = t('NameStarship')
+  const crew = t('Crew')
+  const nbPlanetsVisited = t('NbPlanetsVisited')
+  const resultTitle = t('Result')
   useEffect(() => {
     addNewScore(
       profileState.name,
@@ -23,6 +26,7 @@ const EndGameComponent = () => {
   }, [])
   return (
     <EndGameDiv>
+      <TitleStyle>{resultTitle}</TitleStyle>
       <ProfilDiv>
         <DetailProfileDiv>
           <StyledSpan>{`${admiral} : ${profileState.name} `}</StyledSpan>
@@ -76,6 +80,11 @@ const StyledSpan = styled.span`
 const BlockImage = styled.img`
   width: 300px;
   padding: 5px;
+`
+
+const TitleStyle = styled.span`
+  font-weight: bold;
+  margin: 15px 0px;
 `
 
 const ButtonDiv = styled.div`
