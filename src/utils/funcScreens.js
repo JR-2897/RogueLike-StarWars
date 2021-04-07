@@ -55,7 +55,7 @@ export const submitProfileForm = (
     counterHD: 3,
     faction: faction,
     visitedPlanets: 0,
-    crew: 1
+    crew: 150
   }
   localStorage.setItem('step', 2)
   initGame(dispatch, history, profile)

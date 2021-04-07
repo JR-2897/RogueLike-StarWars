@@ -35,7 +35,7 @@ export const transformDataForStarship = (id, data) => {
     ...starship,
     name: data.name,
     cost: data.cost_in_credits,
-    maxCapacity: data.crew,
+    maxCapacity: Math.max(150, data.crew),
     model: data.model
   }
 }
