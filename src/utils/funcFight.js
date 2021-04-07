@@ -1,4 +1,4 @@
-import { incPlanets, updateCrew } from '../actions/profile'
+import { updateProfile } from '../actions/profile'
 import r from './random'
 
 const kill = (units, unitsToKill) => {
@@ -35,7 +35,6 @@ export const calcfight = (playerTroops, enemyTroops) => {
       )
     }
   }
-  // Voir quoi return (objet avec valeurs des deux ? / booleen victoire)
   if (playerTroops > 0) {
     console.log(`victoire`)
   } else {
@@ -49,10 +48,22 @@ export const fight = (profile, currentPlanet, dispatch, setHasLost) => {
   var enemy = currentPlanet.garrison
   var initTroops = profile.crew
   var remainingTroops = calcfight(initTroops, enemy)
+  var credits = 0
+  var nbPl = profile.visitedPlanets
+
   if (remainingTroops === 0) {
     setHasLost(true)
   } else {
-    dispatch(incPlanets())
+    nbPl = nbPl + 1
+    credits = Math.ceil((Math.random() + 0.5) * 10 * initTroops)
   }
-  dispatch(updateCrew(remainingTroops))
+
+  dispatch(
+    updateProfile({
+      ...profile,
+      crew: remainingTroops,
+      credit: profile.credit + credits,
+      visitedPlanets: nbPl
+    })
+  )
 }

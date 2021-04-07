@@ -75,16 +75,16 @@ const CenterBlockSpace = ({
           <ButtonComponent
             onClickButton={shopStarshipActionButton}
             textButton={shopStarshipButton}
-          ></ButtonComponent>
+          />
           <ButtonComponent
             onClickButton={restockActionButton}
             textButton={restockButton}
-          ></ButtonComponent>
+          />
           <ButtonComponent
             onClickButton={skipPlanetActionButton}
             dispatch={dispatch}
             textButton={skipButton}
-          ></ButtonComponent>
+          />
         </ButtonDiv>
       )}
       <StyledSpan>{message}</StyledSpan>

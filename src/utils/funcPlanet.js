@@ -16,7 +16,7 @@ export const transformDataForPlanet = (id, data) => {
   const planetObject = {
     ...planet,
     class: getClass(data.population),
-    garrison: data.population === 'unknown' ? 150 : getGarrison(data.population)
+    garrison: data.population === 'unknown' ? 100 : getGarrison(data.population)
   }
   return planetObject
 }
@@ -25,8 +25,8 @@ const getGarrison = (pop, gar = 0, classe = 0) => {
   var temp = Math.min(pop, Math.pow(7, classe + 1))
 
   if (classe <= 1) {
-    if (pop < 150) {
-      return 150
+    if (pop < 100) {
+      return 100
     }
     temp = Math.min(pop, 200)
   }
@@ -67,7 +67,6 @@ export const chosePlanet = (list, profileState) => {
     return defaultPlanet
   } else if (p.class > Math.max(3 * profileState.visitedPlanets, 4)) {
     list.splice(list.indexOf(p), 1)
-    // eslint-disable-next-line no-unused-vars
-    return chosePlanet(list)
+    return chosePlanet(list, profileState)
   } else return p
 }
