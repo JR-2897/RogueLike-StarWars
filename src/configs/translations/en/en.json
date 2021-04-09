@@ -48,6 +48,8 @@
     "Division": "Division",
     "Corps": "Corps",
     "Army": "Field army",
-    "ArmyGroup": "Army group"
+    "ArmyGroup": "Army group",
+    "Quantity":"Qty",
+    "Price": "Price"
   }
 }

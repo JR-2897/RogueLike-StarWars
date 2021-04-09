@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { buyItem } from '../../utils/funcScreens'
 import { useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 
 const ItemComponent = ({
   title,
@@ -16,7 +17,10 @@ const ItemComponent = ({
 }) => {
   const dispatch = useDispatch()
   const history = useHistory()
+  const { t } = useTranslation()
   const [message, setMessage] = useState('')
+  const labelQuantity = t('Quantity')
+  const price = t('Price')
   return (
     <div>
       <ItemDiv>
@@ -28,10 +32,10 @@ const ItemComponent = ({
               </ItemFirstTd>
               <ItemSecondTd>
                 <NumberDiv>
-                  <ItemNumber>{`Qtte: ${quantity}`}</ItemNumber>
+                  <ItemNumber>{`${labelQuantity}: ${quantity}`}</ItemNumber>
                 </NumberDiv>
                 <NumberDiv>
-                  <ItemNumber>{`Prix: ${cost} `}</ItemNumber>
+                  <ItemNumber>{`${price}: ${cost} `}</ItemNumber>
                 </NumberDiv>
               </ItemSecondTd>
               <td>

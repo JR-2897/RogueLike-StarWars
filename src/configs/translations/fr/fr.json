@@ -48,6 +48,8 @@
     "Division": "Division",
     "Corps": "Corps",
     "Army": "Armée",
-    "ArmyGroup": "Groupe d'armée"
+    "ArmyGroup": "Groupe d'armée",
+    "Quantity":"Qtte",
+    "Price": "Prix"
   }
 }
